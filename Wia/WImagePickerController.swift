@@ -14,26 +14,37 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var cameraItem: UIBarButtonItem!
     @IBOutlet weak var nextItem: UIBarButtonItem!
+    @IBOutlet weak var libraryUnavailableMessage: UIView!
     
     fileprivate var fetchResult: PHFetchResult<PHAsset>!
     fileprivate var thumbnailSize: CGSize!
     fileprivate var cellSize: CGSize!
     fileprivate var selectedAssets = [PHAsset]()
     
-    fileprivate let imageManager = PHCachingImageManager()
+    fileprivate var imageManager: PHCachingImageManager!
+    
+    fileprivate let status = PHPhotoLibrary.authorizationStatus()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let allPhotosOptions = PHFetchOptions()
-        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let bobPredicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
-        allPhotosOptions.predicate = bobPredicate
-
-        fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
-        imageCollectionView.reloadData()
-        
-        PHPhotoLibrary.shared().register(self)
+        if status == .authorized || status == .notDetermined {
+            
+            imageManager = PHCachingImageManager()
+            
+            let allPhotosOptions = PHFetchOptions()
+            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            let bobPredicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
+            allPhotosOptions.predicate = bobPredicate
+            
+            fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+            imageCollectionView.reloadData()
+            
+            PHPhotoLibrary.shared().register(self)
+        }
+        else {
+            libraryUnavailableMessage.isHidden = false
+        }
         
         let scale = UIScreen.main.scale
         var cellWidth :CGFloat
@@ -58,7 +69,9 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     deinit {
-        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+        if status == .authorized || status == .notDetermined {
+            PHPhotoLibrary.shared().unregisterChangeObserver(self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,7 +100,12 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchResult.count
+        if status == .authorized || status == .notDetermined {
+            return fetchResult.count
+        }
+        else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

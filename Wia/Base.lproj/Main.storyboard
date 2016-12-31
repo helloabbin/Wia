@@ -117,13 +117,51 @@
                                     <outlet property="delegate" destination="BhD-Cj-GiR" id="Puh-Kw-KwL"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bs-g7-Dpr">
+                                <rect key="frame" x="15" y="0.0" width="345" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couldn't access Photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSl-Fi-dP6">
+                                        <rect key="frame" x="0.0" y="288" width="345" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Wia to access your photos by going to Settings &gt; Privacy &gt; Camera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-2G-k0N">
+                                        <rect key="frame" x="0.0" y="320.5" width="345" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTn-zF-gkh">
+                                        <rect key="frame" x="0.0" y="381.5" width="345" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Enable Photos Access"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="pIa-2G-k0N" secondAttribute="trailing" id="4EQ-F3-0Qx"/>
+                                    <constraint firstItem="ZTn-zF-gkh" firstAttribute="leading" secondItem="6bs-g7-Dpr" secondAttribute="leading" id="96U-T8-d3X"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZTn-zF-gkh" secondAttribute="trailing" id="IAT-uY-7N4"/>
+                                    <constraint firstItem="ZTn-zF-gkh" firstAttribute="top" secondItem="pIa-2G-k0N" secondAttribute="bottom" constant="25" id="U74-XU-J5G"/>
+                                    <constraint firstItem="pIa-2G-k0N" firstAttribute="top" secondItem="rSl-Fi-dP6" secondAttribute="bottom" constant="8" id="Vw7-ie-5cR"/>
+                                    <constraint firstAttribute="trailing" secondItem="rSl-Fi-dP6" secondAttribute="trailing" id="XD0-Rm-rnM"/>
+                                    <constraint firstItem="rSl-Fi-dP6" firstAttribute="centerY" secondItem="6bs-g7-Dpr" secondAttribute="centerY" multiplier="0.9" id="asz-Of-fEp"/>
+                                    <constraint firstItem="pIa-2G-k0N" firstAttribute="leading" secondItem="6bs-g7-Dpr" secondAttribute="leading" id="fiW-cI-Vx9"/>
+                                    <constraint firstItem="rSl-Fi-dP6" firstAttribute="leading" secondItem="6bs-g7-Dpr" secondAttribute="leading" id="r8Q-cl-HiE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6bs-g7-Dpr" firstAttribute="leading" secondItem="qcu-nb-J00" secondAttribute="leading" constant="15" id="C10-bv-gus"/>
                             <constraint firstItem="7jP-ZG-jjP" firstAttribute="leading" secondItem="qcu-nb-J00" secondAttribute="leading" id="DCP-YP-ajQ"/>
                             <constraint firstAttribute="bottom" secondItem="7jP-ZG-jjP" secondAttribute="bottom" id="KC3-7p-ti7"/>
                             <constraint firstItem="7jP-ZG-jjP" firstAttribute="top" secondItem="qcu-nb-J00" secondAttribute="top" id="Lcy-x2-XFp"/>
                             <constraint firstAttribute="trailing" secondItem="7jP-ZG-jjP" secondAttribute="trailing" id="NEM-7e-fht"/>
+                            <constraint firstItem="6bs-g7-Dpr" firstAttribute="top" secondItem="7jP-ZG-jjP" secondAttribute="top" id="cnC-Yp-vJf"/>
+                            <constraint firstAttribute="trailing" secondItem="6bs-g7-Dpr" secondAttribute="trailing" constant="15" id="hMU-SM-8aG"/>
+                            <constraint firstItem="6bs-g7-Dpr" firstAttribute="bottom" secondItem="7jP-ZG-jjP" secondAttribute="bottom" id="mA6-Bm-0yG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose Photo" id="7a7-Ep-VYJ">
@@ -144,6 +182,7 @@
                     <connections>
                         <outlet property="cameraItem" destination="TRz-UZ-N2c" id="Md6-RD-tKo"/>
                         <outlet property="imageCollectionView" destination="7jP-ZG-jjP" id="uvc-6R-b4T"/>
+                        <outlet property="libraryUnavailableMessage" destination="6bs-g7-Dpr" id="sbe-ET-gbx"/>
                         <outlet property="nextItem" destination="Ghd-KV-Ah8" id="wZZ-KH-tsb"/>
                     </connections>
                 </viewController>
@@ -171,22 +210,22 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSC-Hu-Fbb">
-                                <rect key="frame" x="8" y="0.0" width="359" height="667"/>
+                                <rect key="frame" x="15" y="0.0" width="345" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couldn't access Camera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EI9-04-Crn">
-                                        <rect key="frame" x="0.0" y="288" width="359" height="24"/>
+                                        <rect key="frame" x="0.0" y="288" width="345" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Wia to access your camera by going to Settings &gt; Privacy &gt; Camera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kf-IU-z6z">
-                                        <rect key="frame" x="0.0" y="320" width="359" height="36"/>
+                                        <rect key="frame" x="0.0" y="320" width="345" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGl-ep-pRZ">
-                                        <rect key="frame" x="0.0" y="381" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="381" width="345" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Enable Camera Access">
                                             <color key="titleColor" white="1" alpha="0.83738227739726023" colorSpace="calibratedWhite"/>
@@ -290,8 +329,8 @@
                             <constraint firstItem="k1r-ff-kbD" firstAttribute="width" secondItem="WcB-5h-HBC" secondAttribute="width" multiplier="0.8" id="fa4-je-0ic"/>
                             <constraint firstItem="iyL-9x-sOv" firstAttribute="top" secondItem="WcB-5h-HBC" secondAttribute="top" id="jtp-Tq-5LA"/>
                             <constraint firstItem="DgV-hS-JNU" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" id="oMN-16-W0A"/>
-                            <constraint firstAttribute="trailing" secondItem="iSC-Hu-Fbb" secondAttribute="trailing" constant="8" id="sAD-jc-95w"/>
-                            <constraint firstItem="iSC-Hu-Fbb" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" constant="8" id="szk-hb-85H"/>
+                            <constraint firstAttribute="trailing" secondItem="iSC-Hu-Fbb" secondAttribute="trailing" constant="15" id="sAD-jc-95w"/>
+                            <constraint firstItem="iSC-Hu-Fbb" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" constant="15" id="szk-hb-85H"/>
                             <constraint firstItem="iFi-g8-Yvv" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" id="tNk-q8-g7i"/>
                             <constraint firstItem="DgV-hS-JNU" firstAttribute="top" secondItem="WcB-5h-HBC" secondAttribute="top" constant="44" id="xKH-fD-kwY"/>
                             <constraint firstItem="DgV-hS-JNU" firstAttribute="top" secondItem="iFi-g8-Yvv" secondAttribute="bottom" id="z2j-OM-92E"/>
