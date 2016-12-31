@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-class WCameraController: UIViewController {
+class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     private enum SessionSetupResult {
         case success
@@ -25,6 +25,7 @@ class WCameraController: UIViewController {
     @IBOutlet weak var viewFinder: WViewFinder!
     @IBOutlet weak var cameraUnavailableMessage: UIView!
     @IBOutlet weak var flashButton: UIButton!
+    @IBOutlet weak var imageCollectionView: UICollectionView!
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Constants
@@ -71,6 +72,8 @@ class WCameraController: UIViewController {
         sessionQueue.async { [unowned self] in
             self.configureSession()
         }
+        
+        imageCollectionView.register(UINib.init(nibName: "WCameraImagePreviewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "WCameraImagePreviewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,6 +169,26 @@ class WCameraController: UIViewController {
             self.inProgressPhotoCaptureDelegates[photoCaptureDelegate.requestedPhotoSettings.uniqueID] = photoCaptureDelegate
             self.photoOutput.capturePhoto(with: photoSettings, delegate: photoCaptureDelegate)
         }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WCameraImagePreviewCell", for: indexPath)
+        return cell
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.size.width
+        return CGSize(width: width, height: width)
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

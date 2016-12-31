@@ -14,6 +14,8 @@
 		ED0D2D411E17B01A003A1BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0D2D401E17B01A003A1BCD /* Assets.xcassets */; };
 		ED0D2D441E17B01A003A1BCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0D2D421E17B01A003A1BCD /* LaunchScreen.storyboard */; };
 		ED0D2D4C1E17B226003A1BCD /* WCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */; };
+		ED0D2D531E17D7E2003A1BCD /* WCameraImagePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D511E17D7E2003A1BCD /* WCameraImagePreviewCell.swift */; };
+		ED0D2D541E17D7E2003A1BCD /* WCameraImagePreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0D2D521E17D7E2003A1BCD /* WCameraImagePreviewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		ED0D2D431E17B01A003A1BCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED0D2D451E17B01A003A1BCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCameraController.swift; sourceTree = "<group>"; };
+		ED0D2D511E17D7E2003A1BCD /* WCameraImagePreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCameraImagePreviewCell.swift; sourceTree = "<group>"; };
+		ED0D2D521E17D7E2003A1BCD /* WCameraImagePreviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCameraImagePreviewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				ED0D2D391E17B01A003A1BCD /* FirstViewController.swift */,
 				ED0D2D3B1E17B01A003A1BCD /* SecondViewController.swift */,
 				ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */,
+				ED0D2D511E17D7E2003A1BCD /* WCameraImagePreviewCell.swift */,
+				ED0D2D521E17D7E2003A1BCD /* WCameraImagePreviewCell.xib */,
 				ED0D2D3D1E17B01A003A1BCD /* Main.storyboard */,
 				ED0D2D401E17B01A003A1BCD /* Assets.xcassets */,
 				ED0D2D421E17B01A003A1BCD /* LaunchScreen.storyboard */,
@@ -132,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED0D2D441E17B01A003A1BCD /* LaunchScreen.storyboard in Resources */,
+				ED0D2D541E17D7E2003A1BCD /* WCameraImagePreviewCell.xib in Resources */,
 				ED0D2D411E17B01A003A1BCD /* Assets.xcassets in Resources */,
 				ED0D2D3F1E17B01A003A1BCD /* Main.storyboard in Resources */,
 			);
@@ -144,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0D2D531E17D7E2003A1BCD /* WCameraImagePreviewCell.swift in Sources */,
 				ED0D2D3C1E17B01A003A1BCD /* SecondViewController.swift in Sources */,
 				ED0D2D381E17B01A003A1BCD /* AppDelegate.swift in Sources */,
 				ED0D2D4C1E17B226003A1BCD /* WCameraController.swift in Sources */,

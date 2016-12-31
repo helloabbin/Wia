@@ -171,16 +171,20 @@
                                     <constraint firstAttribute="trailing" secondItem="22m-co-TYZ" secondAttribute="trailing" constant="25" id="sP9-W1-uTg"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yp1-Jf-MA6">
-                                <rect key="frame" x="0.0" y="544" width="75" height="123"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yp1-Jf-MA6">
+                                <rect key="frame" x="5" y="549" width="65" height="113"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hb8-Dr-Jgh">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Hb8-Dr-Jgh">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hum-6F-jlj" id="lU9-Xc-zhD"/>
+                                    <outlet property="delegate" destination="hum-6F-jlj" id="9iC-rH-ymR"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFi-g8-Yvv">
                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -206,10 +210,10 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DgV-hS-JNU" secondAttribute="trailing" id="2Tl-HK-cam"/>
-                            <constraint firstItem="Yp1-Jf-MA6" firstAttribute="top" secondItem="DgV-hS-JNU" secondAttribute="bottom" id="6yF-gd-vm3"/>
+                            <constraint firstItem="Yp1-Jf-MA6" firstAttribute="top" secondItem="DgV-hS-JNU" secondAttribute="bottom" constant="5" id="6yF-gd-vm3"/>
                             <constraint firstAttribute="bottom" secondItem="k1r-ff-kbD" secondAttribute="bottom" id="8og-ad-5A7"/>
                             <constraint firstItem="97D-WR-QEB" firstAttribute="centerX" secondItem="WcB-5h-HBC" secondAttribute="centerX" id="AQc-5P-DJt"/>
-                            <constraint firstAttribute="bottom" secondItem="Yp1-Jf-MA6" secondAttribute="bottom" id="AUq-MY-gaF"/>
+                            <constraint firstAttribute="bottom" secondItem="Yp1-Jf-MA6" secondAttribute="bottom" constant="5" id="AUq-MY-gaF"/>
                             <constraint firstAttribute="bottom" secondItem="iSC-Hu-Fbb" secondAttribute="bottom" id="AaX-hE-kXa"/>
                             <constraint firstItem="k1r-ff-kbD" firstAttribute="top" secondItem="DgV-hS-JNU" secondAttribute="bottom" id="Cpa-yB-twj"/>
                             <constraint firstItem="DgV-hS-JNU" firstAttribute="top" secondItem="iyL-9x-sOv" secondAttribute="bottom" id="Fal-vS-td0"/>
@@ -217,8 +221,8 @@
                             <constraint firstItem="iFi-g8-Yvv" firstAttribute="top" secondItem="WcB-5h-HBC" secondAttribute="top" id="VdE-Ux-R0Z"/>
                             <constraint firstItem="iSC-Hu-Fbb" firstAttribute="top" secondItem="WcB-5h-HBC" secondAttribute="top" id="W5W-OG-i1u"/>
                             <constraint firstAttribute="trailing" secondItem="k1r-ff-kbD" secondAttribute="trailing" id="XAK-aF-w5y"/>
-                            <constraint firstItem="Yp1-Jf-MA6" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" id="c4b-za-PsO"/>
-                            <constraint firstItem="k1r-ff-kbD" firstAttribute="leading" secondItem="Yp1-Jf-MA6" secondAttribute="trailing" id="fLx-Gh-HdR"/>
+                            <constraint firstItem="Yp1-Jf-MA6" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" constant="5" id="c4b-za-PsO"/>
+                            <constraint firstItem="k1r-ff-kbD" firstAttribute="leading" secondItem="Yp1-Jf-MA6" secondAttribute="trailing" constant="5" id="fLx-Gh-HdR"/>
                             <constraint firstItem="k1r-ff-kbD" firstAttribute="width" secondItem="WcB-5h-HBC" secondAttribute="width" multiplier="0.8" id="fa4-je-0ic"/>
                             <constraint firstItem="iyL-9x-sOv" firstAttribute="top" secondItem="WcB-5h-HBC" secondAttribute="top" id="jtp-Tq-5LA"/>
                             <constraint firstItem="DgV-hS-JNU" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" id="oMN-16-W0A"/>
@@ -232,6 +236,7 @@
                     <connections>
                         <outlet property="cameraUnavailableMessage" destination="iSC-Hu-Fbb" id="FFK-cH-prO"/>
                         <outlet property="flashButton" destination="iyL-9x-sOv" id="SiJ-Sq-Ei6"/>
+                        <outlet property="imageCollectionView" destination="Yp1-Jf-MA6" id="OSd-bq-rD5"/>
                         <outlet property="shutterButton" destination="97D-WR-QEB" id="f05-9o-ODG"/>
                         <outlet property="viewFinder" destination="DgV-hS-JNU" id="jLW-r0-Mdu"/>
                     </connections>
