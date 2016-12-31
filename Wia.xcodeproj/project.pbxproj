@@ -13,6 +13,7 @@
 		ED0D2D3F1E17B01A003A1BCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0D2D3D1E17B01A003A1BCD /* Main.storyboard */; };
 		ED0D2D411E17B01A003A1BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0D2D401E17B01A003A1BCD /* Assets.xcassets */; };
 		ED0D2D441E17B01A003A1BCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0D2D421E17B01A003A1BCD /* LaunchScreen.storyboard */; };
+		ED0D2D4C1E17B226003A1BCD /* WCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		ED0D2D401E17B01A003A1BCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED0D2D431E17B01A003A1BCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED0D2D451E17B01A003A1BCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				ED0D2D371E17B01A003A1BCD /* AppDelegate.swift */,
 				ED0D2D391E17B01A003A1BCD /* FirstViewController.swift */,
 				ED0D2D3B1E17B01A003A1BCD /* SecondViewController.swift */,
+				ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */,
 				ED0D2D3D1E17B01A003A1BCD /* Main.storyboard */,
 				ED0D2D401E17B01A003A1BCD /* Assets.xcassets */,
 				ED0D2D421E17B01A003A1BCD /* LaunchScreen.storyboard */,
@@ -93,6 +96,7 @@
 		ED0D2D2C1E17B01A003A1BCD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = W;
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Abbin Varghese";
@@ -142,6 +146,7 @@
 			files = (
 				ED0D2D3C1E17B01A003A1BCD /* SecondViewController.swift in Sources */,
 				ED0D2D381E17B01A003A1BCD /* AppDelegate.swift in Sources */,
+				ED0D2D4C1E17B226003A1BCD /* WCameraController.swift in Sources */,
 				ED0D2D3A1E17B01A003A1BCD /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +213,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -251,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -265,6 +270,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GFYAJXL68W;
 				INFOPLIST_FILE = Wia/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abbinvarghese.whatiate.Wia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -278,6 +284,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GFYAJXL68W;
 				INFOPLIST_FILE = Wia/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abbinvarghese.whatiate.Wia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
