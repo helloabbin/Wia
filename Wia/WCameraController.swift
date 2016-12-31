@@ -20,7 +20,7 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - @IBOutlet
-
+    
     @IBOutlet weak var shutterButton: UIButton!
     @IBOutlet weak var viewFinder: WViewFinder!
     @IBOutlet weak var cameraUnavailableMessage: UIView!
@@ -106,7 +106,7 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
         
         super.viewWillDisappear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -157,8 +157,6 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
                         self.viewFinder.videoPreviewLayer.opacity = 1
                     }
                 }
-            }, capturingLivePhoto: { capturing in
-                
             }, completed: { [unowned self] photoCaptureDelegate in
                 self.sessionQueue.async { [unowned self] in
                     self.inProgressPhotoCaptureDelegates[photoCaptureDelegate.requestedPhotoSettings.uniqueID] = nil
@@ -266,7 +264,7 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
         NotificationCenter.default.removeObserver(self)
         session.removeObserver(self, forKeyPath: "running", context: &sessionRunningObserveContext)
     }
-
+    
     private func configureSession() {
         if setupResult != .success {
             return
@@ -343,17 +341,17 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
         
         NotificationCenter.default.addObserver(self, selector: #selector(subjectAreaDidChange), name: Notification.Name("AVCaptureDeviceSubjectAreaDidChangeNotification"), object: videoDeviceInput.device)
         NotificationCenter.default.addObserver(self, selector: #selector(sessionRuntimeError), name: Notification.Name("AVCaptureSessionRuntimeErrorNotification"), object: session)
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(sessionWasInterrupted), name: Notification.Name("AVCaptureSessionWasInterruptedNotification"), object: session)
         NotificationCenter.default.addObserver(self, selector: #selector(sessionInterruptionEnded), name: Notification.Name("AVCaptureSessionInterruptionEndedNotification"), object: session)
     }
-
+    
     private func focus(with focusMode: AVCaptureFocusMode, exposureMode: AVCaptureExposureMode, at devicePoint: CGPoint, monitorSubjectAreaChange: Bool) {
         sessionQueue.async { [unowned self] in
             if let device = self.videoDeviceInput.device {
                 do {
                     try device.lockForConfiguration()
-
+                    
                     if device.isFocusPointOfInterestSupported && device.isFocusModeSupported(focusMode) {
                         device.focusPointOfInterest = devicePoint
                         device.focusMode = focusMode
@@ -379,6 +377,7 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
 // MARK: - PhotoCaptureDelegate
 
 class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
+    
     private(set) var requestedPhotoSettings: AVCapturePhotoSettings
     
     private let willCapturePhotoAnimation: () -> ()
@@ -387,7 +386,7 @@ class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
     
     private var photoData: Data? = nil
     
-    init(with requestedPhotoSettings: AVCapturePhotoSettings, willCapturePhotoAnimation: @escaping () -> (), capturingLivePhoto: @escaping (Bool) -> (), completed: @escaping (PhotoCaptureDelegate) -> ()) {
+    init(with requestedPhotoSettings: AVCapturePhotoSettings, willCapturePhotoAnimation: @escaping () -> (), completed: @escaping (PhotoCaptureDelegate) -> ()) {
         self.requestedPhotoSettings = requestedPhotoSettings
         self.willCapturePhotoAnimation = willCapturePhotoAnimation
         self.completed = completed

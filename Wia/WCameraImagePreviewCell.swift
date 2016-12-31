@@ -9,10 +9,17 @@
 import UIKit
 
 class WCameraImagePreviewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var cellImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    var thumbnailImage: UIImage? {
+        didSet {
+            cellImageView.image = thumbnailImage
+        }
+    }
 }
