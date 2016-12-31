@@ -130,7 +130,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="cameraItem" destination="TRz-UZ-N2c" id="Md6-RD-tKo"/>
                         <outlet property="imageCollectionView" destination="7jP-ZG-jjP" id="uvc-6R-b4T"/>
+                        <outlet property="nextItem" destination="Ghd-KV-Ah8" id="wZZ-KH-tsb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdh-Ze-gIN" userLabel="First Responder" sceneMemberID="firstResponder"/>

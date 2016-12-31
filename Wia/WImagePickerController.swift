@@ -12,15 +12,19 @@ import Photos
 class WImagePickerController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    @IBOutlet weak var cameraItem: UIBarButtonItem!
+    @IBOutlet weak var nextItem: UIBarButtonItem!
     
     fileprivate var fetchResult: PHFetchResult<PHAsset>!
     fileprivate var thumbnailSize: CGSize!
+    fileprivate var cellSize: CGSize!
     fileprivate var selectedAssets = [PHAsset]()
     
     fileprivate let imageManager = PHCachingImageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let allPhotosOptions = PHFetchOptions()
         allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         let bobPredicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
@@ -30,6 +34,20 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
         imageCollectionView.reloadData()
         
         PHPhotoLibrary.shared().register(self)
+        
+        let scale = UIScreen.main.scale
+        var cellWidth :CGFloat
+        let screenWidth = UIScreen.main.bounds.size.width
+        
+        if screenWidth >= 375.0 { // 4.7" screen or bigger
+            cellWidth = (screenWidth/4) - 1
+        }
+        else {
+            cellWidth = (screenWidth/3) - 1
+        }
+        
+        cellSize = CGSize.init(width: cellWidth, height: cellWidth)
+        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,21 +86,63 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let asset = fetchResult.object(at: indexPath.item)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WImagePickerCell", for: indexPath) as! WImagePickerCell
+        
         cell.representedAssetIdentifier = asset.localIdentifier
+        
+        if selectedAssets.contains(asset) {
+            cell.selectCell()
+        }
+        else{
+            cell.deSelectCell()
+        }
+        
         imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
             if cell.representedAssetIdentifier == asset.localIdentifier {
                 cell.thumbnailImage = image
             }
         })
+        
         return cell
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! WImagePickerCell
+        let asset = fetchResult[indexPath.row]
+        
+        if selectedAssets.contains(asset) {
+            selectedAssets.remove(at: selectedAssets.index(of: asset)!)
+            cell.deSelectCell()
+        }
+        else {
+            if selectedAssets.count < 3 {
+                selectedAssets.append(asset)
+                cell.selectCell()
+            }
+        }
+        
+        if selectedAssets.count > 2 {
+            cameraItem.isEnabled = false
+        }
+        else{
+            cameraItem.isEnabled = true
+        }
+        
+        if selectedAssets.count > 0 {
+            nextItem.isEnabled = true
+        }
+        else{
+            nextItem.isEnabled = false
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.size.width/3)-1
-        return CGSize(width: width, height: width)
+        return cellSize
     }
 
 }

@@ -25,4 +25,12 @@ class WImagePickerCell: UICollectionViewCell {
         imageView.image = nil
     }
     
+    func selectCell() {
+
+    }
+    
+    func deSelectCell() {
+
+    }
+    
 }
