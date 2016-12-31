@@ -62,18 +62,66 @@
 		ED0D2D361E17B01A003A1BCD /* Wia */ = {
 			isa = PBXGroup;
 			children = (
+				ED0D2D581E17F44C003A1BCD /* ViewControllers */,
+				ED0D2D551E17F40F003A1BCD /* UIElements */,
 				ED0D2D371E17B01A003A1BCD /* AppDelegate.swift */,
-				ED0D2D391E17B01A003A1BCD /* FirstViewController.swift */,
-				ED0D2D3B1E17B01A003A1BCD /* SecondViewController.swift */,
-				ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */,
-				ED0D2D511E17D7E2003A1BCD /* WCameraImagePreviewCell.swift */,
-				ED0D2D521E17D7E2003A1BCD /* WCameraImagePreviewCell.xib */,
 				ED0D2D3D1E17B01A003A1BCD /* Main.storyboard */,
 				ED0D2D401E17B01A003A1BCD /* Assets.xcassets */,
 				ED0D2D421E17B01A003A1BCD /* LaunchScreen.storyboard */,
 				ED0D2D451E17B01A003A1BCD /* Info.plist */,
 			);
 			path = Wia;
+			sourceTree = "<group>";
+		};
+		ED0D2D551E17F40F003A1BCD /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D2D5B1E17F4A7003A1BCD /* Camera */,
+				ED0D2D561E17F41B003A1BCD /* UICollectionViewCell */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
+		ED0D2D561E17F41B003A1BCD /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D2D571E17F430003A1BCD /* CameraImagePreview */,
+			);
+			name = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
+		ED0D2D571E17F430003A1BCD /* CameraImagePreview */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D2D511E17D7E2003A1BCD /* WCameraImagePreviewCell.swift */,
+				ED0D2D521E17D7E2003A1BCD /* WCameraImagePreviewCell.xib */,
+			);
+			name = CameraImagePreview;
+			sourceTree = "<group>";
+		};
+		ED0D2D581E17F44C003A1BCD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D2D5A1E17F483003A1BCD /* Discover */,
+				ED0D2D3B1E17B01A003A1BCD /* SecondViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ED0D2D5A1E17F483003A1BCD /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D2D391E17B01A003A1BCD /* FirstViewController.swift */,
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		ED0D2D5B1E17F4A7003A1BCD /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */,
+			);
+			name = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

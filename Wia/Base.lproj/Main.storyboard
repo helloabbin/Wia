@@ -172,7 +172,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yp1-Jf-MA6">
-                                <rect key="frame" x="5" y="549" width="65" height="113"/>
+                                <rect key="frame" x="20" y="549" width="45" height="113"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Hb8-Dr-Jgh">
                                     <size key="itemSize" width="50" height="50"/>
@@ -221,8 +221,8 @@
                             <constraint firstItem="iFi-g8-Yvv" firstAttribute="top" secondItem="WcB-5h-HBC" secondAttribute="top" id="VdE-Ux-R0Z"/>
                             <constraint firstItem="iSC-Hu-Fbb" firstAttribute="top" secondItem="WcB-5h-HBC" secondAttribute="top" id="W5W-OG-i1u"/>
                             <constraint firstAttribute="trailing" secondItem="k1r-ff-kbD" secondAttribute="trailing" id="XAK-aF-w5y"/>
-                            <constraint firstItem="Yp1-Jf-MA6" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" constant="5" id="c4b-za-PsO"/>
-                            <constraint firstItem="k1r-ff-kbD" firstAttribute="leading" secondItem="Yp1-Jf-MA6" secondAttribute="trailing" constant="5" id="fLx-Gh-HdR"/>
+                            <constraint firstItem="Yp1-Jf-MA6" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" constant="20" id="c4b-za-PsO"/>
+                            <constraint firstItem="k1r-ff-kbD" firstAttribute="leading" secondItem="Yp1-Jf-MA6" secondAttribute="trailing" constant="10" id="fLx-Gh-HdR"/>
                             <constraint firstItem="k1r-ff-kbD" firstAttribute="width" secondItem="WcB-5h-HBC" secondAttribute="width" multiplier="0.8" id="fa4-je-0ic"/>
                             <constraint firstItem="iyL-9x-sOv" firstAttribute="top" secondItem="WcB-5h-HBC" secondAttribute="top" id="jtp-Tq-5LA"/>
                             <constraint firstItem="DgV-hS-JNU" firstAttribute="leading" secondItem="WcB-5h-HBC" secondAttribute="leading" id="oMN-16-W0A"/>
