@@ -19,6 +19,7 @@
 		ED0D2D5E1E17FC82003A1BCD /* WImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D5D1E17FC82003A1BCD /* WImagePickerController.swift */; };
 		ED0D2D601E17FCFF003A1BCD /* WImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D5F1E17FCFF003A1BCD /* WImagePickerCell.swift */; };
 		ED0D2D631E180B07003A1BCD /* WCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D621E180B07003A1BCD /* WCommon.swift */; };
+		ED0D2D651E181650003A1BCD /* WColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D641E181650003A1BCD /* WColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		ED0D2D5D1E17FC82003A1BCD /* WImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WImagePickerController.swift; sourceTree = "<group>"; };
 		ED0D2D5F1E17FCFF003A1BCD /* WImagePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WImagePickerCell.swift; sourceTree = "<group>"; };
 		ED0D2D621E180B07003A1BCD /* WCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCommon.swift; sourceTree = "<group>"; };
+		ED0D2D641E181650003A1BCD /* WColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				ED0D2D611E180AC2003A1BCD /* Modals */,
-				ED0D2D581E17F44C003A1BCD /* ViewControllers */,
 				ED0D2D551E17F40F003A1BCD /* UIElements */,
+				ED0D2D581E17F44C003A1BCD /* ViewControllers */,
 				ED0D2D371E17B01A003A1BCD /* AppDelegate.swift */,
 				ED0D2D3D1E17B01A003A1BCD /* Main.storyboard */,
 				ED0D2D401E17B01A003A1BCD /* Assets.xcassets */,
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				ED0D2D621E180B07003A1BCD /* WCommon.swift */,
+				ED0D2D641E181650003A1BCD /* WColor.swift */,
 			);
 			name = Modals;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				ED0D2D531E17D7E2003A1BCD /* WCameraImagePreviewCell.swift in Sources */,
 				ED0D2D3C1E17B01A003A1BCD /* SecondViewController.swift in Sources */,
 				ED0D2D381E17B01A003A1BCD /* AppDelegate.swift in Sources */,
+				ED0D2D651E181650003A1BCD /* WColor.swift in Sources */,
 				ED0D2D4C1E17B226003A1BCD /* WCameraController.swift in Sources */,
 				ED0D2D3A1E17B01A003A1BCD /* FirstViewController.swift in Sources */,
 				ED0D2D601E17FCFF003A1BCD /* WImagePickerCell.swift in Sources */,

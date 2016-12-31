@@ -89,18 +89,26 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jlj-Vk-1nl">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5F-XP-aaZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="u5F-XP-aaZ" firstAttribute="top" secondItem="5Vk-TX-6Zw" secondAttribute="top" id="48E-qr-pUU"/>
                                             <constraint firstAttribute="bottom" secondItem="jlj-Vk-1nl" secondAttribute="bottom" id="WmN-vY-uAo"/>
                                             <constraint firstItem="jlj-Vk-1nl" firstAttribute="top" secondItem="5Vk-TX-6Zw" secondAttribute="top" id="aD6-7f-aRf"/>
+                                            <constraint firstItem="u5F-XP-aaZ" firstAttribute="leading" secondItem="5Vk-TX-6Zw" secondAttribute="leading" id="bZC-s9-4H0"/>
+                                            <constraint firstAttribute="bottom" secondItem="u5F-XP-aaZ" secondAttribute="bottom" id="mw6-CS-G5H"/>
                                             <constraint firstItem="jlj-Vk-1nl" firstAttribute="leading" secondItem="5Vk-TX-6Zw" secondAttribute="leading" id="qTF-Pz-qBT"/>
                                             <constraint firstAttribute="trailing" secondItem="jlj-Vk-1nl" secondAttribute="trailing" id="yPy-h9-Zse"/>
+                                            <constraint firstAttribute="trailing" secondItem="u5F-XP-aaZ" secondAttribute="trailing" id="zbo-Px-ORB"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="jlj-Vk-1nl" id="JaI-Qm-Tje"/>
+                                            <outlet property="selectView" destination="u5F-XP-aaZ" id="AAf-E5-PaC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -119,7 +127,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose Photo" id="7a7-Ep-VYJ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5Ya-kv-gdj"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5Ya-kv-gdj">
+                            <connections>
+                                <action selector="cancelPicker:" destination="BhD-Cj-GiR" id="WI0-Sq-3Ie"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Next" id="Ghd-KV-Ah8"/>
                             <barButtonItem systemItem="camera" id="TRz-UZ-N2c">
