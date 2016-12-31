@@ -16,6 +16,9 @@
 		ED0D2D4C1E17B226003A1BCD /* WCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */; };
 		ED0D2D531E17D7E2003A1BCD /* WCameraImagePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D511E17D7E2003A1BCD /* WCameraImagePreviewCell.swift */; };
 		ED0D2D541E17D7E2003A1BCD /* WCameraImagePreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0D2D521E17D7E2003A1BCD /* WCameraImagePreviewCell.xib */; };
+		ED0D2D5E1E17FC82003A1BCD /* WImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D5D1E17FC82003A1BCD /* WImagePickerController.swift */; };
+		ED0D2D601E17FCFF003A1BCD /* WImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D5F1E17FCFF003A1BCD /* WImagePickerCell.swift */; };
+		ED0D2D631E180B07003A1BCD /* WCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D621E180B07003A1BCD /* WCommon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCameraController.swift; sourceTree = "<group>"; };
 		ED0D2D511E17D7E2003A1BCD /* WCameraImagePreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCameraImagePreviewCell.swift; sourceTree = "<group>"; };
 		ED0D2D521E17D7E2003A1BCD /* WCameraImagePreviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCameraImagePreviewCell.xib; sourceTree = "<group>"; };
+		ED0D2D5D1E17FC82003A1BCD /* WImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WImagePickerController.swift; sourceTree = "<group>"; };
+		ED0D2D5F1E17FCFF003A1BCD /* WImagePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WImagePickerCell.swift; sourceTree = "<group>"; };
+		ED0D2D621E180B07003A1BCD /* WCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCommon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 		ED0D2D361E17B01A003A1BCD /* Wia */ = {
 			isa = PBXGroup;
 			children = (
+				ED0D2D611E180AC2003A1BCD /* Modals */,
 				ED0D2D581E17F44C003A1BCD /* ViewControllers */,
 				ED0D2D551E17F40F003A1BCD /* UIElements */,
 				ED0D2D371E17B01A003A1BCD /* AppDelegate.swift */,
@@ -76,6 +83,7 @@
 		ED0D2D551E17F40F003A1BCD /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				ED0D2D5C1E17FBC4003A1BCD /* Image Picker */,
 				ED0D2D5B1E17F4A7003A1BCD /* Camera */,
 				ED0D2D561E17F41B003A1BCD /* UICollectionViewCell */,
 			);
@@ -86,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				ED0D2D571E17F430003A1BCD /* CameraImagePreview */,
+				ED0D2D5F1E17FCFF003A1BCD /* WImagePickerCell.swift */,
 			);
 			name = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -122,6 +131,22 @@
 				ED0D2D4B1E17B226003A1BCD /* WCameraController.swift */,
 			);
 			name = Camera;
+			sourceTree = "<group>";
+		};
+		ED0D2D5C1E17FBC4003A1BCD /* Image Picker */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D2D5D1E17FC82003A1BCD /* WImagePickerController.swift */,
+			);
+			name = "Image Picker";
+			sourceTree = "<group>";
+		};
+		ED0D2D611E180AC2003A1BCD /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D2D621E180B07003A1BCD /* WCommon.swift */,
+			);
+			name = Modals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,11 +224,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0D2D631E180B07003A1BCD /* WCommon.swift in Sources */,
 				ED0D2D531E17D7E2003A1BCD /* WCameraImagePreviewCell.swift in Sources */,
 				ED0D2D3C1E17B01A003A1BCD /* SecondViewController.swift in Sources */,
 				ED0D2D381E17B01A003A1BCD /* AppDelegate.swift in Sources */,
 				ED0D2D4C1E17B226003A1BCD /* WCameraController.swift in Sources */,
 				ED0D2D3A1E17B01A003A1BCD /* FirstViewController.swift in Sources */,
+				ED0D2D601E17FCFF003A1BCD /* WImagePickerCell.swift in Sources */,
+				ED0D2D5E1E17FC82003A1BCD /* WImagePickerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

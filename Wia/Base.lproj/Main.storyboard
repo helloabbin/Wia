@@ -61,7 +61,7 @@
         <!--Choose Photo-->
         <scene sceneID="dhZ-rv-MdF">
             <objects>
-                <viewController id="BhD-Cj-GiR" sceneMemberID="viewController">
+                <viewController id="BhD-Cj-GiR" customClass="WImagePickerController" customModule="Wia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="umY-3h-Sro"/>
                         <viewControllerLayoutGuide type="bottom" id="aVI-if-XP4"/>
@@ -69,7 +69,54 @@
                     <view key="view" contentMode="scaleToFill" id="qcu-nb-J00">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7jP-ZG-jjP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="SfO-lR-0Fs">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WImagePickerCell" id="5Vk-TX-6Zw" customClass="WImagePickerCell" customModule="Wia" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jlj-Vk-1nl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="jlj-Vk-1nl" secondAttribute="bottom" id="WmN-vY-uAo"/>
+                                            <constraint firstItem="jlj-Vk-1nl" firstAttribute="top" secondItem="5Vk-TX-6Zw" secondAttribute="top" id="aD6-7f-aRf"/>
+                                            <constraint firstItem="jlj-Vk-1nl" firstAttribute="leading" secondItem="5Vk-TX-6Zw" secondAttribute="leading" id="qTF-Pz-qBT"/>
+                                            <constraint firstAttribute="trailing" secondItem="jlj-Vk-1nl" secondAttribute="trailing" id="yPy-h9-Zse"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="jlj-Vk-1nl" id="JaI-Qm-Tje"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BhD-Cj-GiR" id="PKh-5h-yog"/>
+                                    <outlet property="delegate" destination="BhD-Cj-GiR" id="Puh-Kw-KwL"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7jP-ZG-jjP" firstAttribute="leading" secondItem="qcu-nb-J00" secondAttribute="leading" id="DCP-YP-ajQ"/>
+                            <constraint firstAttribute="bottom" secondItem="7jP-ZG-jjP" secondAttribute="bottom" id="KC3-7p-ti7"/>
+                            <constraint firstItem="7jP-ZG-jjP" firstAttribute="top" secondItem="qcu-nb-J00" secondAttribute="top" id="Lcy-x2-XFp"/>
+                            <constraint firstAttribute="trailing" secondItem="7jP-ZG-jjP" secondAttribute="trailing" id="NEM-7e-fht"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose Photo" id="7a7-Ep-VYJ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5Ya-kv-gdj"/>
@@ -82,6 +129,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageCollectionView" destination="7jP-ZG-jjP" id="uvc-6R-b4T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdh-Ze-gIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
