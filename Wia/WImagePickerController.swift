@@ -9,7 +9,11 @@
 import UIKit
 import Photos
 
-class WImagePickerController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol WImagePickerControllerDelegate {
+    func imagePickerController(controller: WImagePickerController, photoLibraryDidChangeWith asset: PHAsset)
+}
+
+class WImagePickerController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, WCameraControllerDelegate {
 
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var cameraItem: UIBarButtonItem!
@@ -20,10 +24,11 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     fileprivate var thumbnailSize: CGSize!
     fileprivate var cellSize: CGSize!
     fileprivate var selectedAssets = [PHAsset]()
-    
     fileprivate var imageManager: PHCachingImageManager!
     
     fileprivate let status = PHPhotoLibrary.authorizationStatus()
+    
+    var delegate: WImagePickerControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +46,13 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
             imageCollectionView.reloadData()
             
             PHPhotoLibrary.shared().register(self)
+            
+            libraryUnavailableMessage.isHidden = true
+            cameraItem.isEnabled = true
         }
         else {
             libraryUnavailableMessage.isHidden = false
+            cameraItem.isEnabled = false
         }
         
         let scale = UIScreen.main.scale
@@ -79,21 +88,30 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Navigation
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        if segue.identifier == "WCameraControllerSegue" {
+            let controller = segue.destination as! WCameraController
+            self.delegate = controller
+            controller.imageManager = self.imageManager
+            controller.imageCount = 3 - selectedAssets.count
+            controller.delegate = self
+        }
      }
-     */
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - @IBAction
     
     @IBAction func cancelPicker(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func goToSettings(_ sender: Any) {
+        if let appSettings = NSURL(string: UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.open(appSettings as URL, options: [:], completionHandler: nil)
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,6 +187,16 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return cellSize
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WCameraControllerDelegate
+    
+    func cameraController(remove: [PHAsset]) {
+        for asset in remove {
+            selectedAssets.remove(at: selectedAssets.index(of: asset)!)
+        }
+        imageCollectionView.reloadData()
+    }
 
 }
 
@@ -195,9 +223,12 @@ extension WImagePickerController: PHPhotoLibraryChangeObserver {
                             let name : String = resource.originalFilename
                             if name[0 ..< 3] == "WIA" {
                                 self.selectedAssets.append(asset)
+                                self.delegate?.imagePickerController(controller: self, photoLibraryDidChangeWith: asset)
+                                if self.selectedAssets.count > 2 {
+                                    self.cameraItem.isEnabled = false
+                                }
                             }
                         }
-                        
                     }
                     if let changed = changes.changedIndexes, changed.count > 0 {
                         collectionView.reloadItems(at: changed.map({ IndexPath(item: $0, section: 0) }))

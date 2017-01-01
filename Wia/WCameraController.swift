@@ -10,7 +10,11 @@ import UIKit
 import AVFoundation
 import Photos
 
-class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+protocol WCameraControllerDelegate {
+    func cameraController(remove: [PHAsset])
+}
+
+class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, WImagePickerControllerDelegate {
     
     private enum SessionSetupResult {
         case success
@@ -26,6 +30,7 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
     @IBOutlet weak var cameraUnavailableMessage: UIView!
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    @IBOutlet weak var doneButton: UIButton!
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Constants
@@ -37,18 +42,29 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Variables
     
+    var delegate: WCameraControllerDelegate?
+    var imageCount: Int!
+    var imageManager: PHCachingImageManager!
     private var sessionRunningObserveContext = 0
     private var isSessionRunning = false
     private var inProgressPhotoCaptureDelegates = [Int64 : PhotoCaptureDelegate]()
     private var flashMode = AVCaptureFlashMode.auto
     private var setupResult: SessionSetupResult = .success
     private var videoDeviceInput: AVCaptureDeviceInput!
+    private var takenImageAssets = [PHAsset]()
+    private var thumbnailSize: CGSize!
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - ViewController LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let scale = UIScreen.main.scale
+        let cellSize = (imageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize
+        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
+        
+        doneButton.isHidden = true
         shutterButton.isEnabled = false
         viewFinder.session = session
         
@@ -119,6 +135,12 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - @IBAction
     
+    @IBAction func goToSettings(_ sender: Any) {
+        if let appSettings = NSURL(string: UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.open(appSettings as URL, options: [:], completionHandler: nil)
+        }
+    }
+    
     @IBAction func changeFlash(_ sender: Any) {
         if flashMode == .auto {
             flashMode = .off
@@ -131,6 +153,11 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
     }
     
     @IBAction func dismisCamera(_ sender: Any) {
+        delegate?.cameraController(remove: takenImageAssets)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func doneWithCamera(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -173,11 +200,20 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return takenImageAssets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WCameraImagePreviewCell", for: indexPath)
+        let asset = takenImageAssets[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WCameraImagePreviewCell", for: indexPath) as! WCameraImagePreviewCell
+        
+        cell.representedAssetIdentifier = asset.localIdentifier
+        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+            if cell.representedAssetIdentifier == asset.localIdentifier {
+                cell.thumbnailImage = image
+            }
+        })
+        
         return cell
     }
     
@@ -187,6 +223,21 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width
         return CGSize(width: width, height: width)
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WImagePickerControllerDelegate
+    
+    func imagePickerController(controller: WImagePickerController, photoLibraryDidChangeWith asset: PHAsset) {
+        takenImageAssets.append(asset)
+        imageCollectionView.reloadData()
+        imageCollectionView.scrollToItem(at: IndexPath.init(row: takenImageAssets.count - 1, section: 0), at: .bottom, animated: true)
+        if takenImageAssets.count == imageCount {
+            dismiss(animated: true, completion: nil)
+        }
+        if takenImageAssets.count > 0 {
+            doneButton.isHidden = false
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

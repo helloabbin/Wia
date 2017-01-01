@@ -126,7 +126,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Wia to access your photos by going to Settings &gt; Privacy &gt; Camera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-2G-k0N">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Wia to access your photos by going to Settings &gt; Privacy &gt; Photos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-2G-k0N">
                                         <rect key="frame" x="0.0" y="320.5" width="345" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -136,6 +136,9 @@
                                         <rect key="frame" x="0.0" y="381.5" width="345" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Enable Photos Access"/>
+                                        <connections>
+                                            <action selector="goToSettings:" destination="BhD-Cj-GiR" eventType="touchUpInside" id="rsO-ip-wSu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -174,7 +177,7 @@
                             <barButtonItem title="Next" id="Ghd-KV-Ah8"/>
                             <barButtonItem systemItem="camera" id="TRz-UZ-N2c">
                                 <connections>
-                                    <segue destination="hum-6F-jlj" kind="presentation" id="YYV-JT-sKD"/>
+                                    <segue destination="hum-6F-jlj" kind="presentation" identifier="WCameraControllerSegue" id="YYV-JT-sKD"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -230,6 +233,9 @@
                                         <state key="normal" title="Enable Camera Access">
                                             <color key="titleColor" white="1" alpha="0.83738227739726023" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goToSettings:" destination="hum-6F-jlj" eventType="touchUpInside" id="zdf-4G-a9o"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -265,6 +271,9 @@
                                         <state key="normal" title="Done">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="doneWithCamera:" destination="hum-6F-jlj" eventType="touchUpInside" id="weU-rO-GjY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -338,6 +347,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraUnavailableMessage" destination="iSC-Hu-Fbb" id="FFK-cH-prO"/>
+                        <outlet property="doneButton" destination="22m-co-TYZ" id="7Q8-3A-KAo"/>
                         <outlet property="flashButton" destination="iyL-9x-sOv" id="SiJ-Sq-Ei6"/>
                         <outlet property="imageCollectionView" destination="Yp1-Jf-MA6" id="OSd-bq-rD5"/>
                         <outlet property="shutterButton" destination="97D-WR-QEB" id="f05-9o-ODG"/>

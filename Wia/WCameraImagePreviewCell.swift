@@ -17,6 +17,8 @@ class WCameraImagePreviewCell: UICollectionViewCell {
         // Initialization code
     }
     
+     var representedAssetIdentifier: String!
+    
     var thumbnailImage: UIImage? {
         didSet {
             cellImageView.image = thumbnailImage
