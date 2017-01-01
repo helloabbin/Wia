@@ -26,4 +26,27 @@ extension String {
         return self[Range(start ..< end)]
     }
     
+    var cleaned: String {
+        get {
+            return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }
+    }
+    
+    var superTrimmed: String {
+        get {
+            return cleaned.replacingOccurrences(of: " ", with: "")
+        }
+    }
+    
+    var capped: String {
+        get {
+            return superTrimmed.lowercased()
+        }
+    }
+    
+    var priceValue: Double {
+        get {
+            return Double(cleaned.replacingOccurrences(of: NSLocale.current.currencySymbol!, with: ""))!
+        }
+    }
 }

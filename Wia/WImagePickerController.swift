@@ -33,26 +33,25 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if status == .authorized || status == .notDetermined {
-            
-            imageManager = PHCachingImageManager()
-            
-            let allPhotosOptions = PHFetchOptions()
-            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-            let bobPredicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
-            allPhotosOptions.predicate = bobPredicate
-            
-            fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
-            imageCollectionView.reloadData()
-            
-            PHPhotoLibrary.shared().register(self)
-            
-            libraryUnavailableMessage.isHidden = true
-            cameraItem.isEnabled = true
+        if status == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({ (authStat) in
+                DispatchQueue.main.async {
+                    if authStat == .authorized {
+                        self.getAllPhotos()
+                    }
+                    else{
+                        self.libraryUnavailableMessage.isHidden = false
+                        self.cameraItem.isEnabled = false
+                    }
+                }
+            })
+        }
+        else if status == .authorized {
+            getAllPhotos()
         }
         else {
-            libraryUnavailableMessage.isHidden = false
-            cameraItem.isEnabled = false
+            self.libraryUnavailableMessage.isHidden = false
+            self.cameraItem.isEnabled = false
         }
         
         let scale = UIScreen.main.scale
@@ -78,7 +77,7 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     deinit {
-        if status == .authorized || status == .notDetermined {
+        if status == .authorized {
             PHPhotoLibrary.shared().unregisterChangeObserver(self)
         }
     }
@@ -118,7 +117,7 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if status == .authorized || status == .notDetermined {
+        if status == .authorized {
             return fetchResult.count
         }
         else {
@@ -196,6 +195,23 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
             selectedAssets.remove(at: selectedAssets.index(of: asset)!)
         }
         imageCollectionView.reloadData()
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Other
+    
+    func getAllPhotos() {
+        self.imageManager = PHCachingImageManager()
+        
+        let allPhotosOptions = PHFetchOptions()
+        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let bobPredicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
+        allPhotosOptions.predicate = bobPredicate
+        
+        self.fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+        self.imageCollectionView.reloadData()
+        
+        PHPhotoLibrary.shared().register(self)
     }
 
 }
