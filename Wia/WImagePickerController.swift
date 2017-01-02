@@ -26,7 +26,7 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     fileprivate var selectedAssets = [PHAsset]()
     fileprivate var imageManager: PHCachingImageManager!
     
-    fileprivate let status = PHPhotoLibrary.authorizationStatus()
+    fileprivate var status = PHPhotoLibrary.authorizationStatus()
     
     var delegate: WImagePickerControllerDelegate?
     
@@ -37,6 +37,7 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
             PHPhotoLibrary.requestAuthorization({ (authStat) in
                 DispatchQueue.main.async {
                     if authStat == .authorized {
+                        self.status = authStat
                         self.getAllPhotos()
                     }
                     else{

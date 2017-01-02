@@ -77,6 +77,9 @@ class WCameraController: UIViewController, UICollectionViewDelegateFlowLayout, U
             AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [unowned self] granted in
                 if !granted {
                     self.setupResult = .notAuthorized
+                    DispatchQueue.main.async {
+                        self.cameraUnavailableMessage.isHidden = false
+                    }
                 }
                 self.sessionQueue.resume()
             })

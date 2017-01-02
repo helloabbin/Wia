@@ -8,13 +8,20 @@
 
 import UIKit
 
-class WMakeItemController: UIViewController {
+class WMakeItemController: UITableViewController {
+    
+    enum WMakeItemControllerRow: Int {
+        case name
+        case price
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let back = UIBarButtonItem(image: #imageLiteral(resourceName: "back"), style: .plain, target: self, action: #selector(cancelItemMakeController(_:)))
         navigationItem.leftBarButtonItem = back
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        tableView.keyboardDismissMode = .interactive
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +32,21 @@ class WMakeItemController: UIViewController {
     func cancelItemMakeController(_ sender: Any) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == WMakeItemControllerRow.name.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakeItemTextFieldCell", for: indexPath)
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakeItemPriceCell", for: indexPath)
+            return cell
         }
     }
 
