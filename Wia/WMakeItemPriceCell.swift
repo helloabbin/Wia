@@ -14,7 +14,7 @@ class WMakeItemPriceCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cellTitleLabel.textColor = WColor.mainColor
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -22,6 +22,10 @@
 		ED0D2D651E181650003A1BCD /* WColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D641E181650003A1BCD /* WColor.swift */; };
 		ED5F96931E1A443D005688A1 /* WMakeItemTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F96921E1A443D005688A1 /* WMakeItemTextFieldCell.swift */; };
 		ED5F96951E1A4F09005688A1 /* WMakeItemPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F96941E1A4F09005688A1 /* WMakeItemPriceCell.swift */; };
+		ED5F96971E1A7466005688A1 /* WMakeItemCuisineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F96961E1A7466005688A1 /* WMakeItemCuisineCell.swift */; };
+		ED5F96991E1A7885005688A1 /* WItemMakeDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F96981E1A7885005688A1 /* WItemMakeDescriptionCell.swift */; };
+		ED5F969B1E1AAE14005688A1 /* WPlaceSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F969A1E1AAE14005688A1 /* WPlaceSearchController.swift */; };
+		ED5F969D1E1AB26F005688A1 /* WMakePlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F969C1E1AB26F005688A1 /* WMakePlaceController.swift */; };
 		ED7365BD1E19193600599FE6 /* WItemSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365BC1E19193600599FE6 /* WItemSearchController.swift */; };
 		ED7365BF1E19304A00599FE6 /* WManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365BE1E19304A00599FE6 /* WManager.swift */; };
 		ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365C01E194D3100599FE6 /* WMakeItemController.swift */; };
@@ -46,6 +50,10 @@
 		ED0D2D641E181650003A1BCD /* WColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WColor.swift; sourceTree = "<group>"; };
 		ED5F96921E1A443D005688A1 /* WMakeItemTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakeItemTextFieldCell.swift; sourceTree = "<group>"; };
 		ED5F96941E1A4F09005688A1 /* WMakeItemPriceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakeItemPriceCell.swift; sourceTree = "<group>"; };
+		ED5F96961E1A7466005688A1 /* WMakeItemCuisineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakeItemCuisineCell.swift; sourceTree = "<group>"; };
+		ED5F96981E1A7885005688A1 /* WItemMakeDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WItemMakeDescriptionCell.swift; sourceTree = "<group>"; };
+		ED5F969A1E1AAE14005688A1 /* WPlaceSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPlaceSearchController.swift; sourceTree = "<group>"; };
+		ED5F969C1E1AB26F005688A1 /* WMakePlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceController.swift; sourceTree = "<group>"; };
 		ED7365BC1E19193600599FE6 /* WItemSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WItemSearchController.swift; sourceTree = "<group>"; };
 		ED7365BE1E19304A00599FE6 /* WManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WManager.swift; sourceTree = "<group>"; };
 		ED7365C01E194D3100599FE6 /* WMakeItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakeItemController.swift; sourceTree = "<group>"; };
@@ -128,7 +136,9 @@
 			children = (
 				ED0D2D391E17B01A003A1BCD /* FirstViewController.swift */,
 				ED7365BC1E19193600599FE6 /* WItemSearchController.swift */,
+				ED5F969A1E1AAE14005688A1 /* WPlaceSearchController.swift */,
 				ED7365C01E194D3100599FE6 /* WMakeItemController.swift */,
+				ED5F969C1E1AB26F005688A1 /* WMakePlaceController.swift */,
 				ED7365C21E194D5900599FE6 /* WReviewController.swift */,
 				ED0D2D3B1E17B01A003A1BCD /* SecondViewController.swift */,
 			);
@@ -166,6 +176,8 @@
 			children = (
 				ED5F96921E1A443D005688A1 /* WMakeItemTextFieldCell.swift */,
 				ED5F96941E1A4F09005688A1 /* WMakeItemPriceCell.swift */,
+				ED5F96961E1A7466005688A1 /* WMakeItemCuisineCell.swift */,
+				ED5F96981E1A7885005688A1 /* WItemMakeDescriptionCell.swift */,
 			);
 			name = UITableViewCell;
 			sourceTree = "<group>";
@@ -246,15 +258,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */,
+				ED5F969B1E1AAE14005688A1 /* WPlaceSearchController.swift in Sources */,
 				ED0D2D631E180B07003A1BCD /* WCommon.swift in Sources */,
 				ED0D2D531E17D7E2003A1BCD /* WCameraImagePreviewCell.swift in Sources */,
+				ED5F969D1E1AB26F005688A1 /* WMakePlaceController.swift in Sources */,
 				ED0D2D3C1E17B01A003A1BCD /* SecondViewController.swift in Sources */,
 				ED5F96951E1A4F09005688A1 /* WMakeItemPriceCell.swift in Sources */,
 				ED0D2D381E17B01A003A1BCD /* AppDelegate.swift in Sources */,
 				ED0D2D651E181650003A1BCD /* WColor.swift in Sources */,
 				ED0D2D4C1E17B226003A1BCD /* WCameraController.swift in Sources */,
 				ED7365C31E194D5900599FE6 /* WReviewController.swift in Sources */,
+				ED5F96971E1A7466005688A1 /* WMakeItemCuisineCell.swift in Sources */,
 				ED7365BD1E19193600599FE6 /* WItemSearchController.swift in Sources */,
+				ED5F96991E1A7885005688A1 /* WItemMakeDescriptionCell.swift in Sources */,
 				ED7365BF1E19304A00599FE6 /* WManager.swift in Sources */,
 				ED0D2D3A1E17B01A003A1BCD /* FirstViewController.swift in Sources */,
 				ED0D2D601E17FCFF003A1BCD /* WImagePickerCell.swift in Sources */,

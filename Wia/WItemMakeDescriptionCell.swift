@@ -1,5 +1,5 @@
 //
-//  WMakeItemTextFieldCell.swift
+//  WItemMakeDescriptionCell.swift
 //  Wia
 //
 //  Created by Abbin Varghese on 02/01/17.
@@ -8,10 +8,8 @@
 
 import UIKit
 
-class WMakeItemTextFieldCell: UITableViewCell {
+class WItemMakeDescriptionCell: UITableViewCell {
 
-    @IBOutlet weak var cellTitleLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
