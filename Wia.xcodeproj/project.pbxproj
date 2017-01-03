@@ -30,6 +30,9 @@
 		ED7365BF1E19304A00599FE6 /* WManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365BE1E19304A00599FE6 /* WManager.swift */; };
 		ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365C01E194D3100599FE6 /* WMakeItemController.swift */; };
 		ED7365C31E194D5900599FE6 /* WReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365C21E194D5900599FE6 /* WReviewController.swift */; };
+		EDAC78B91E1BB54100720EA3 /* WMakePlaceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78B81E1BB54100720EA3 /* WMakePlaceNameCell.swift */; };
+		EDAC78BB1E1BB69600720EA3 /* WMakePlaceAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78BA1E1BB69600720EA3 /* WMakePlaceAddressCell.swift */; };
+		EDAC78BD1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78BC1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		ED7365BE1E19304A00599FE6 /* WManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WManager.swift; sourceTree = "<group>"; };
 		ED7365C01E194D3100599FE6 /* WMakeItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakeItemController.swift; sourceTree = "<group>"; };
 		ED7365C21E194D5900599FE6 /* WReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WReviewController.swift; sourceTree = "<group>"; };
+		EDAC78B81E1BB54100720EA3 /* WMakePlaceNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceNameCell.swift; sourceTree = "<group>"; };
+		EDAC78BA1E1BB69600720EA3 /* WMakePlaceAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceAddressCell.swift; sourceTree = "<group>"; };
+		EDAC78BC1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceCoordinatesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,9 @@
 				ED5F96941E1A4F09005688A1 /* WMakeItemPriceCell.swift */,
 				ED5F96961E1A7466005688A1 /* WMakeItemCuisineCell.swift */,
 				ED5F96981E1A7885005688A1 /* WItemMakeDescriptionCell.swift */,
+				EDAC78B81E1BB54100720EA3 /* WMakePlaceNameCell.swift */,
+				EDAC78BA1E1BB69600720EA3 /* WMakePlaceAddressCell.swift */,
+				EDAC78BC1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift */,
 			);
 			name = UITableViewCell;
 			sourceTree = "<group>";
@@ -272,10 +281,13 @@
 				ED7365BD1E19193600599FE6 /* WItemSearchController.swift in Sources */,
 				ED5F96991E1A7885005688A1 /* WItemMakeDescriptionCell.swift in Sources */,
 				ED7365BF1E19304A00599FE6 /* WManager.swift in Sources */,
+				EDAC78BD1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift in Sources */,
 				ED0D2D3A1E17B01A003A1BCD /* FirstViewController.swift in Sources */,
 				ED0D2D601E17FCFF003A1BCD /* WImagePickerCell.swift in Sources */,
 				ED5F96931E1A443D005688A1 /* WMakeItemTextFieldCell.swift in Sources */,
+				EDAC78B91E1BB54100720EA3 /* WMakePlaceNameCell.swift in Sources */,
 				ED0D2D5E1E17FC82003A1BCD /* WImagePickerController.swift in Sources */,
+				EDAC78BB1E1BB69600720EA3 /* WMakePlaceAddressCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

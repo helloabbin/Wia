@@ -9,6 +9,15 @@
 import UIKit
 
 class WMakePlaceController: UITableViewController {
+    
+    enum WMakePlaceControllerRow: Int {
+        case name
+        case address
+        case coordinates
+        case phoneNumber
+        case workingDays
+        case workinghours
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,24 +39,39 @@ class WMakePlaceController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if indexPath.row == WMakePlaceControllerRow.name.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath)
+            return cell
+        }
+        else if indexPath.row == WMakePlaceControllerRow.address.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceAddressCell", for: indexPath)
+            return cell
+        }
+        else if indexPath.row == WMakePlaceControllerRow.coordinates.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceCoordinatesCell", for: indexPath)
+            return cell
+        }
+        else if indexPath.row == WMakePlaceControllerRow.phoneNumber.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath)
+            return cell
+        }
+        else if indexPath.row == WMakePlaceControllerRow.workingDays.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath)
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath)
+            return cell
+        }
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
