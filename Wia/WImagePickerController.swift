@@ -60,20 +60,13 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
         let screenWidth = UIScreen.main.bounds.size.width
         
         if screenWidth >= 375.0 { // 4.7" screen or bigger
-            cellWidth = (screenWidth/4) - 1
+            cellWidth = (screenWidth/4) - 2.0
         }
         else {
-            cellWidth = (screenWidth/3) - 1
+            cellWidth = (screenWidth/3) - 1.6
         }
         
         cellSize = CGSize.init(width: cellWidth, height: cellWidth)
-        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let scale = UIScreen.main.scale
-        let cellSize = (imageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize
         thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
     }
     

@@ -73,7 +73,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7jP-ZG-jjP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="SfO-lR-0Fs">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2.6000000000000001" minimumInteritemSpacing="2" id="SfO-lR-0Fs">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -87,7 +87,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jlj-Vk-1nl">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jlj-Vk-1nl">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5F-XP-aaZ">
@@ -245,7 +245,7 @@
                                         <rect key="frame" x="0.0" y="141" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ju8-Wf-iTf" id="aGo-X1-1jm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zlh-9W-cD1">
@@ -487,8 +487,8 @@
                                 <constraint firstAttribute="trailing" secondItem="nFd-ix-G38" secondAttribute="trailing" constant="20" id="SgE-zm-3iq"/>
                                 <constraint firstItem="ZZM-13-mgv" firstAttribute="top" secondItem="jbg-DK-xUp" secondAttribute="top" constant="20" id="c4s-Ty-ZCW"/>
                                 <constraint firstItem="nFd-ix-G38" firstAttribute="top" secondItem="ZZM-13-mgv" secondAttribute="bottom" constant="5" id="eKy-Gd-yFy"/>
-                                <constraint firstAttribute="bottom" secondItem="nFd-ix-G38" secondAttribute="bottom" constant="40.5" id="f8y-36-yEI"/>
                                 <constraint firstAttribute="trailing" secondItem="ZZM-13-mgv" secondAttribute="trailing" constant="20" id="hSc-JI-o40"/>
+                                <constraint firstAttribute="bottom" secondItem="nFd-ix-G38" secondAttribute="bottom" constant="40.5" id="vBA-xy-EdH"/>
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="5Bk-Zc-g3a">
