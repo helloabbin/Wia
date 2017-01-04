@@ -1,15 +1,15 @@
 //
-//  WMakeItemPriceCell.swift
+//  WMakePlacePhoneNumberCell.swift
 //  Wia
 //
-//  Created by Abbin Varghese on 02/01/17.
+//  Created by Abbin Varghese on 04/01/17.
 //  Copyright © 2017 Abbin Varghese. All rights reserved.
 //
 
 import UIKit
 
-class WMakeItemPriceCell: UITableViewCell {
-    
+class WMakePlacePhoneNumberCell: UITableViewCell {
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

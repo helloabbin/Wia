@@ -10,7 +10,7 @@ import UIKit
 
 class WMakePlaceController: UITableViewController {
     
-    enum WMakePlaceControllerRow: Int {
+    enum WMakePlaceControllerSection: Int {
         case name
         case address
         case coordinates
@@ -39,31 +39,31 @@ class WMakePlaceController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == WMakePlaceControllerRow.name.rawValue {
+        if indexPath.section == WMakePlaceControllerSection.name.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath)
             return cell
         }
-        else if indexPath.row == WMakePlaceControllerRow.address.rawValue {
+        else if indexPath.section == WMakePlaceControllerSection.address.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceAddressCell", for: indexPath)
             return cell
         }
-        else if indexPath.row == WMakePlaceControllerRow.coordinates.rawValue {
+        else if indexPath.section == WMakePlaceControllerSection.coordinates.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceCoordinatesCell", for: indexPath)
             return cell
         }
-        else if indexPath.row == WMakePlaceControllerRow.phoneNumber.rawValue {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath)
+        else if indexPath.section == WMakePlaceControllerSection.phoneNumber.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlacePhoneNumberCell", for: indexPath)
             return cell
         }
-        else if indexPath.row == WMakePlaceControllerRow.workingDays.rawValue {
+        else if indexPath.section == WMakePlaceControllerSection.workingDays.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath)
             return cell
         }

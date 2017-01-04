@@ -9,8 +9,6 @@
 import UIKit
 
 class WMakeItemTextFieldCell: UITableViewCell {
-
-    @IBOutlet weak var cellTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
