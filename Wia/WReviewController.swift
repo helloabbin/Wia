@@ -57,7 +57,10 @@ class WReviewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == WReviewControllerRow.rating.rawValue {
+        if indexPath.row == WReviewControllerRow.images.rawValue {
+            return 150
+        }
+        else if indexPath.row == WReviewControllerRow.rating.rawValue {
             return 60
         }
         else {
