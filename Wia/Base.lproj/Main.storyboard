@@ -805,6 +805,9 @@
                                     <state key="normal" title="NEXT">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="nextButtonClicked:" destination="B3o-uX-aCh" eventType="touchUpInside" id="RmU-FB-Yg0"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1184,28 +1187,31 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <segue destination="hnR-BA-fPI" kind="show" identifier="WReviewControllerSegue" id="n9E-pY-2dD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZgK-am-9fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7229.6000000000004" y="-322.93853073463271"/>
         </scene>
-        <!--Review Controller-->
+        <!--Review-->
         <scene sceneID="Rrd-1Y-OQl">
             <objects>
-                <viewController id="hnR-BA-fPI" customClass="WReviewController" customModule="Wia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Review" id="hnR-BA-fPI" customClass="WReviewController" customModule="Wia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yOl-8p-pza"/>
                         <viewControllerLayoutGuide type="bottom" id="V9L-dF-szO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZWv-TZ-tIo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ufz-aF-Flw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5305" y="359"/>
+            <point key="canvasLocation" x="8238" y="359"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -1313,4 +1319,7 @@
         <image name="second" width="30" height="30"/>
         <image name="shutter" width="65" height="65"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="n9E-pY-2dD"/>
+    </inferredMetricsTieBreakers>
 </document>

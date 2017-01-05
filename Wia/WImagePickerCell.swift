@@ -27,7 +27,7 @@ class WImagePickerCell: UICollectionViewCell {
     }
     
     func selectCell() {
-        selectView.layer.borderColor = WColor.openGreen.cgColor
+        selectView.layer.borderColor = WColor.green.cgColor
         selectView.layer.borderWidth = 5
         selectView.backgroundColor = UIColor.init(white: 1, alpha: 0.5)
     }

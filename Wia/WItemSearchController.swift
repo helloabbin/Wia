@@ -10,10 +10,19 @@ import UIKit
 
 class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
     @IBOutlet weak var searchTableView: UITableView!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variables
     
     var searchController: UISearchController!
     var resultsArray = [AnyObject]()
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - ViewController LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,20 +57,33 @@ class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.dismiss(animated: false, completion: nil)
     }
     
-    func showKeyboard(_ sender: Any) {
-        searchController.searchBar.becomeFirstResponder()
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Actions
     
     func cancelItemSearchController(_ sender: Any) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func showKeyboard(_ sender: Any) {
+        searchController.searchBar.becomeFirstResponder()
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UISearchResultsUpdating
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
@@ -86,6 +108,9 @@ class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultsArray.count
     }
@@ -103,6 +128,9 @@ class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }
@@ -117,16 +145,4 @@ class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewD
             performSegue(withIdentifier: "WReviewControllerSegue", sender: self)
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

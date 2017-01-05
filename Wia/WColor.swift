@@ -10,9 +10,15 @@ import UIKit
 
 class WColor: UIColor {
     
-    open class var openGreen: UIColor {
+    override open class var green: UIColor {
         get {
             return UIColor.init(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
+        }
+    }
+    
+    override open class var red: UIColor {
+        get {
+            return UIColor.init(red: 244/255, green: 67/255, blue: 54/255, alpha: 1)
         }
     }
     

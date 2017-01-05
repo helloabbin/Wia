@@ -16,8 +16,14 @@ class WMakeItemController: UITableViewController {
         case cuisine
         case description
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
 
     @IBOutlet weak var nextButton: UIButton!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - ViewController LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,16 @@ class WMakeItemController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Actions
+    
     func cancelItemMakeController(_ sender: Any) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
@@ -43,6 +59,9 @@ class WMakeItemController: UITableViewController {
     @IBAction func nextButtonClicked(_ sender: Any) {
         performSegue(withIdentifier: "WPlaceSearchControllerSegue", sender: self)
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
@@ -67,6 +86,9 @@ class WMakeItemController: UITableViewController {
         }
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITableViewDelegate
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == WMakeItemControllerRow.description.rawValue {
             return 120
@@ -75,15 +97,4 @@ class WMakeItemController: UITableViewController {
             return 60
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

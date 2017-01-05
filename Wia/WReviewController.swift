@@ -12,8 +12,14 @@ class WReviewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let back = UIBarButtonItem(image: #imageLiteral(resourceName: "back"), style: .plain, target: self, action: #selector(cancelReviewController(_:)))
+        navigationItem.leftBarButtonItem = back
+    }
+    
+    func cancelReviewController(_ sender: Any) {
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {

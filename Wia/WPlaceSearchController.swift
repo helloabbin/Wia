@@ -10,10 +10,19 @@ import UIKit
 
 class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
     @IBOutlet weak var searchTableView: UITableView!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variables
     
     var searchController: UISearchController!
     var resultsArray = [AnyObject]()
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - ViewController LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +60,16 @@ class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableView
         searchController.dismiss(animated: false, completion: nil)
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Actions
+    
     func showKeyboard(_ sender: Any) {
         searchController.searchBar.becomeFirstResponder()
     }
@@ -60,6 +79,9 @@ class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableView
             navController.popViewController(animated: true)
         }
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UISearchResultsUpdating
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
@@ -84,6 +106,9 @@ class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultsArray.count
     }
@@ -101,6 +126,9 @@ class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }
@@ -112,17 +140,4 @@ class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableView
             performSegue(withIdentifier: "WMakePlaceControllerSegue", sender: self)
         }
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
