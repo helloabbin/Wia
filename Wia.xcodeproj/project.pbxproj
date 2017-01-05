@@ -503,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E647F56C897D13DDDABD932C /* Pods-Wia.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GFYAJXL68W;
 				INFOPLIST_FILE = Wia/Info.plist;
@@ -518,6 +519,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5258ADCABFDCDF843E76EF5 /* Pods-Wia.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GFYAJXL68W;
 				INFOPLIST_FILE = Wia/Info.plist;
