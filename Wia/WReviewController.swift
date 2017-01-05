@@ -8,8 +8,14 @@
 
 import UIKit
 
-class WReviewController: UIViewController {
+class WReviewController: UITableViewController {
 
+    enum WReviewControllerRow: Int {
+        case images
+        case rating
+        case review
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let back = UIBarButtonItem(image: #imageLiteral(resourceName: "back"), style: .plain, target: self, action: #selector(cancelReviewController(_:)))
@@ -25,6 +31,38 @@ class WReviewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == WReviewControllerRow.images.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WReviewImageCollectionCell", for: indexPath)
+            return cell
+        }
+        else if indexPath.row == WReviewControllerRow.rating.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WRatingCell", for: indexPath)
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WReviewCell", for: indexPath)
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == WReviewControllerRow.rating.rawValue {
+            return 60
+        }
+        else {
+            return 120
+        }
     }
     
 

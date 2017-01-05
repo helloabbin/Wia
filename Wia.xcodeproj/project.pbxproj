@@ -32,6 +32,11 @@
 		ED7365BF1E19304A00599FE6 /* WManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365BE1E19304A00599FE6 /* WManager.swift */; };
 		ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365C01E194D3100599FE6 /* WMakeItemController.swift */; };
 		ED7365C31E194D5900599FE6 /* WReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365C21E194D5900599FE6 /* WReviewController.swift */; };
+		ED905FCE1E1E923F00937E13 /* WReviewImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED905FCD1E1E923F00937E13 /* WReviewImageCollectionCell.swift */; };
+		ED905FD01E1E966C00937E13 /* WRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED905FCF1E1E966C00937E13 /* WRatingCell.swift */; };
+		ED905FD21E1E9E0700937E13 /* WReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED905FD11E1E9E0600937E13 /* WReviewCell.swift */; };
+		ED905FD41E1EA0EE00937E13 /* WReviewImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED905FD31E1EA0EE00937E13 /* WReviewImageCell.swift */; };
+		ED905FD61E1EA4C200937E13 /* Screen Shot 2017-01-05 at 9.28.42 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = ED905FD51E1EA4C200937E13 /* Screen Shot 2017-01-05 at 9.28.42 PM.png */; };
 		EDAC78B91E1BB54100720EA3 /* WMakePlaceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78B81E1BB54100720EA3 /* WMakePlaceNameCell.swift */; };
 		EDAC78BB1E1BB69600720EA3 /* WMakePlaceAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78BA1E1BB69600720EA3 /* WMakePlaceAddressCell.swift */; };
 		EDAC78BD1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78BC1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift */; };
@@ -71,6 +76,11 @@
 		ED7365BE1E19304A00599FE6 /* WManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WManager.swift; sourceTree = "<group>"; };
 		ED7365C01E194D3100599FE6 /* WMakeItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakeItemController.swift; sourceTree = "<group>"; };
 		ED7365C21E194D5900599FE6 /* WReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WReviewController.swift; sourceTree = "<group>"; };
+		ED905FCD1E1E923F00937E13 /* WReviewImageCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WReviewImageCollectionCell.swift; sourceTree = "<group>"; };
+		ED905FCF1E1E966C00937E13 /* WRatingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRatingCell.swift; sourceTree = "<group>"; };
+		ED905FD11E1E9E0600937E13 /* WReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WReviewCell.swift; sourceTree = "<group>"; };
+		ED905FD31E1EA0EE00937E13 /* WReviewImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WReviewImageCell.swift; sourceTree = "<group>"; };
+		ED905FD51E1EA4C200937E13 /* Screen Shot 2017-01-05 at 9.28.42 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-01-05 at 9.28.42 PM.png"; sourceTree = "<group>"; };
 		EDAC78B81E1BB54100720EA3 /* WMakePlaceNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceNameCell.swift; sourceTree = "<group>"; };
 		EDAC78BA1E1BB69600720EA3 /* WMakePlaceAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceAddressCell.swift; sourceTree = "<group>"; };
 		EDAC78BC1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceCoordinatesCell.swift; sourceTree = "<group>"; };
@@ -138,6 +148,7 @@
 				ED0D2D401E17B01A003A1BCD /* Assets.xcassets */,
 				ED0D2D421E17B01A003A1BCD /* LaunchScreen.storyboard */,
 				ED0D2D451E17B01A003A1BCD /* Info.plist */,
+				ED905FD51E1EA4C200937E13 /* Screen Shot 2017-01-05 at 9.28.42 PM.png */,
 			);
 			path = Wia;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 			children = (
 				ED0D2D571E17F430003A1BCD /* CameraImagePreview */,
 				ED0D2D5F1E17FCFF003A1BCD /* WImagePickerCell.swift */,
+				ED905FD31E1EA0EE00937E13 /* WReviewImageCell.swift */,
 			);
 			name = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -226,6 +238,9 @@
 				EDC003011E1E23820040FAFE /* WMakePlaceWorkingDaysCell.swift */,
 				EDC003031E1E239E0040FAFE /* WMakePlaceWorkingHoursCell.swift */,
 				EDBAB3331E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift */,
+				ED905FCD1E1E923F00937E13 /* WReviewImageCollectionCell.swift */,
+				ED905FCF1E1E966C00937E13 /* WRatingCell.swift */,
+				ED905FD11E1E9E0600937E13 /* WReviewCell.swift */,
 			);
 			name = UITableViewCell;
 			sourceTree = "<group>";
@@ -294,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED905FD61E1EA4C200937E13 /* Screen Shot 2017-01-05 at 9.28.42 PM.png in Resources */,
 				ED0D2D441E17B01A003A1BCD /* LaunchScreen.storyboard in Resources */,
 				ED0D2D541E17D7E2003A1BCD /* WCameraImagePreviewCell.xib in Resources */,
 				ED0D2D411E17B01A003A1BCD /* Assets.xcassets in Resources */,
@@ -358,10 +374,14 @@
 			files = (
 				EDBAB3341E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift in Sources */,
 				ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */,
+				ED905FCE1E1E923F00937E13 /* WReviewImageCollectionCell.swift in Sources */,
 				ED5F969B1E1AAE14005688A1 /* WPlaceSearchController.swift in Sources */,
 				EDC003001E1E23690040FAFE /* WMakePlaceAdditionalPhoneNumberCell.swift in Sources */,
+				ED905FD21E1E9E0700937E13 /* WReviewCell.swift in Sources */,
 				ED0D2D631E180B07003A1BCD /* WCommon.swift in Sources */,
+				ED905FD41E1EA0EE00937E13 /* WReviewImageCell.swift in Sources */,
 				ED0D2D531E17D7E2003A1BCD /* WCameraImagePreviewCell.swift in Sources */,
+				ED905FD01E1E966C00937E13 /* WRatingCell.swift in Sources */,
 				ED5F969D1E1AB26F005688A1 /* WMakePlaceController.swift in Sources */,
 				ED4C1EC61E1CF43600C24906 /* WMakePlacePhoneNumberCell.swift in Sources */,
 				ED0D2D3C1E17B01A003A1BCD /* SecondViewController.swift in Sources */,
