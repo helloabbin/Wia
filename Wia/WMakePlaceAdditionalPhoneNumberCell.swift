@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol WMakePlaceAdditionalPhoneNumberCellDelegate {
+    func additionalPhoneNumberCellAccessoryButtonTapped(cell:WMakePlaceAdditionalPhoneNumberCell)
+}
+
 class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell {
 
+    var delegate: WMakePlaceAdditionalPhoneNumberCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +27,7 @@ class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func addbuttonClicked(_ sender: Any) {
+        delegate?.additionalPhoneNumberCellAccessoryButtonTapped(cell: self)
+    }
 }

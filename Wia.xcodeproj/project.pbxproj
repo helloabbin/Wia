@@ -35,6 +35,7 @@
 		EDAC78B91E1BB54100720EA3 /* WMakePlaceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78B81E1BB54100720EA3 /* WMakePlaceNameCell.swift */; };
 		EDAC78BB1E1BB69600720EA3 /* WMakePlaceAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78BA1E1BB69600720EA3 /* WMakePlaceAddressCell.swift */; };
 		EDAC78BD1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC78BC1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift */; };
+		EDBAB3341E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBAB3331E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift */; };
 		EDC003001E1E23690040FAFE /* WMakePlaceAdditionalPhoneNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC002FF1E1E23690040FAFE /* WMakePlaceAdditionalPhoneNumberCell.swift */; };
 		EDC003021E1E23820040FAFE /* WMakePlaceWorkingDaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC003011E1E23820040FAFE /* WMakePlaceWorkingDaysCell.swift */; };
 		EDC003041E1E239E0040FAFE /* WMakePlaceWorkingHoursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC003031E1E239E0040FAFE /* WMakePlaceWorkingHoursCell.swift */; };
@@ -73,6 +74,7 @@
 		EDAC78B81E1BB54100720EA3 /* WMakePlaceNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceNameCell.swift; sourceTree = "<group>"; };
 		EDAC78BA1E1BB69600720EA3 /* WMakePlaceAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceAddressCell.swift; sourceTree = "<group>"; };
 		EDAC78BC1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceCoordinatesCell.swift; sourceTree = "<group>"; };
+		EDBAB3331E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceAdditionalWorkingHoursCell.swift; sourceTree = "<group>"; };
 		EDC002FF1E1E23690040FAFE /* WMakePlaceAdditionalPhoneNumberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceAdditionalPhoneNumberCell.swift; sourceTree = "<group>"; };
 		EDC003011E1E23820040FAFE /* WMakePlaceWorkingDaysCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceWorkingDaysCell.swift; sourceTree = "<group>"; };
 		EDC003031E1E239E0040FAFE /* WMakePlaceWorkingHoursCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceWorkingHoursCell.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				EDC002FF1E1E23690040FAFE /* WMakePlaceAdditionalPhoneNumberCell.swift */,
 				EDC003011E1E23820040FAFE /* WMakePlaceWorkingDaysCell.swift */,
 				EDC003031E1E239E0040FAFE /* WMakePlaceWorkingHoursCell.swift */,
+				EDBAB3331E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift */,
 			);
 			name = UITableViewCell;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDBAB3341E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift in Sources */,
 				ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */,
 				ED5F969B1E1AAE14005688A1 /* WPlaceSearchController.swift in Sources */,
 				EDC003001E1E23690040FAFE /* WMakePlaceAdditionalPhoneNumberCell.swift in Sources */,

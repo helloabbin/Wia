@@ -1,5 +1,5 @@
 //
-//  WMakePlaceWorkingHoursCell.swift
+//  WMakePlaceAdditionalWorkingHoursCell.swift
 //  Wia
 //
 //  Created by Abbin Varghese on 05/01/17.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol WMakePlaceWorkingHoursCellDelegate {
-    func workingHoursCellAccessoryButtonTapped(cell:WMakePlaceWorkingHoursCell)
+protocol WMakePlaceAdditionalWorkingHoursCellDelegate {
+    func additionalWorkingHoursCellAccessoryButtonTapped(cell:WMakePlaceAdditionalWorkingHoursCell)
 }
 
-class WMakePlaceWorkingHoursCell: UITableViewCell {
+class WMakePlaceAdditionalWorkingHoursCell: UITableViewCell {
 
-    var delegate: WMakePlaceWorkingHoursCellDelegate?
+    var delegate: WMakePlaceAdditionalWorkingHoursCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +28,7 @@ class WMakePlaceWorkingHoursCell: UITableViewCell {
     }
 
     @IBAction func addButtonClicked(_ sender: Any) {
-        delegate?.workingHoursCellAccessoryButtonTapped(cell: self)
+        delegate?.additionalWorkingHoursCellAccessoryButtonTapped(cell: self)
     }
+    
 }
