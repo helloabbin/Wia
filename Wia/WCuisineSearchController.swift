@@ -1,5 +1,5 @@
 //
-//  WCuisinePickerController.swift
+//  WCuisineSearchController.swift
 //  Wia
 //
 //  Created by Abbin Varghese on 06/01/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class WCuisinePickerController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
-
+class WCuisineSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - @IBOutlet
     
@@ -36,7 +36,7 @@ class WCuisinePickerController: UIViewController, UITableViewDelegate, UITableVi
         
         navigationItem.titleView = searchController.searchBar
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -128,10 +128,10 @@ class WCuisinePickerController: UIViewController, UITableViewDelegate, UITableVi
         let resultObj = resultsArray[indexPath.row]
         
         if let text = resultObj as? String {
-            WManager.newCuisine(name: text, completion: { (cuisine, succeeded) in
+            WManager.newCuisine(name: text, completionHandler: { (cuisine, error) in
                 
             })
         }
     }
-
+    
 }

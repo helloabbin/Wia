@@ -32,7 +32,7 @@ extension String {
         }
     }
     
-    var superTrimmed: String {
+    var trimmed: String {
         get {
             return cleaned.replacingOccurrences(of: " ", with: "")
         }
@@ -40,7 +40,7 @@ extension String {
     
     var capped: String {
         get {
-            return superTrimmed.lowercased()
+            return trimmed.lowercased()
         }
     }
     

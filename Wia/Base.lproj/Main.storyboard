@@ -660,17 +660,17 @@
                     <connections>
                         <outlet property="nextButton" destination="o3q-q8-txv" id="5sO-oT-kT2"/>
                         <segue destination="SZV-ia-uk8" kind="show" identifier="WPlaceSearchControllerSegue" id="Vux-ZJ-vaN"/>
-                        <segue destination="wQv-ot-DvK" kind="presentation" identifier="WCuisinePickerControllerSegue" id="g8d-Sm-u8w"/>
+                        <segue destination="wQv-ot-DvK" kind="presentation" identifier="WCuisineSearchControllerSegue" id="g8d-Sm-u8w"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFk-Cs-fmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5304.8000000000002" y="-322.48875562218893"/>
         </scene>
-        <!--Cuisine Picker Controller-->
+        <!--Cuisine Search Controller-->
         <scene sceneID="Q0S-bF-ID3">
             <objects>
-                <viewController id="3LY-Xn-1tt" customClass="WCuisinePickerController" customModule="Wia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3LY-Xn-1tt" customClass="WCuisineSearchController" customModule="Wia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MEK-7H-jd0"/>
                         <viewControllerLayoutGuide type="bottom" id="OcG-U3-QeC"/>
@@ -736,8 +736,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="3LY-Xn-1tt" id="3cX-mP-1hh"/>
-                                    <outlet property="delegate" destination="3LY-Xn-1tt" id="VYF-jg-o0m"/>
+                                    <outlet property="dataSource" destination="3LY-Xn-1tt" id="Z4u-Ff-Zyk"/>
+                                    <outlet property="delegate" destination="3LY-Xn-1tt" id="PqY-ZA-syx"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -751,7 +751,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8uD-dC-fMp"/>
                     <connections>
-                        <outlet property="searchTableView" destination="Zf4-wJ-m6Q" id="pDm-u9-WDZ"/>
+                        <outlet property="searchTableView" destination="Zf4-wJ-m6Q" id="mOj-nW-FMw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGw-g0-XcO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -28,8 +28,25 @@ class WManager: NSObject {
         completion([], searchText.cleaned)
     }
     
-    class func newCuisine(name:String, completion:(_ cuisine: CKRecord, _ succeeded: Bool) -> Void) {
-        let cuisineRecord = CKRecord(recordType: "")
+    class func newCuisine(name: String, completionHandler: @escaping (CKRecord?, Error?) -> Swift.Void) {
+        let recordId = CKRecordID(recordName: name.capped)
+        let cuisineRecord = CKRecord(recordType: WConstants.recordType.cuisine, recordID: recordId)
         
+        cuisineRecord.setObject(name as CKRecordValue?, forKey: WConstants.cuisine.name)
+        cuisineRecord.setObject(name.capped as CKRecordValue?, forKey: WConstants.cuisine.cappedName)
+        
+        let container = CKContainer.default()
+        let dataBase = container.publicCloudDatabase
+        
+        let begin = Date()
+        
+        dataBase.save(cuisineRecord) { (cuisine, error) in
+            let end = Date()
+            let timeInterval = end.timeIntervalSince(begin)
+            print(error?.localizedDescription ?? "Cuisine Saved: \(timeInterval)")
+            DispatchQueue.main.async {
+                completionHandler(cuisine, error)
+            }
+        }
     }
 }

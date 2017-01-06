@@ -100,7 +100,7 @@ class WMakeItemController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == WMakeItemControllerRow.cuisine.rawValue {
-            performSegue(withIdentifier: "WCuisinePickerControllerSegue", sender: self)
+            performSegue(withIdentifier: "WCuisineSearchControllerSegue", sender: self)
         }
     }
 }
