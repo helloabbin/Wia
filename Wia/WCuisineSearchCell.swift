@@ -1,16 +1,17 @@
 //
-//  WMakeItemCuisineCell.swift
+//  WCuisineSearchCell.swift
 //  Wia
 //
-//  Created by Abbin Varghese on 02/01/17.
+//  Created by Abbin Varghese on 06/01/17.
 //  Copyright © 2017 Abbin Varghese. All rights reserved.
 //
 
 import UIKit
 
-class WMakeItemCuisineCell: UITableViewCell {
+class WCuisineSearchCell: UITableViewCell {
 
-    @IBOutlet weak var cellTextField: UITextField!
+    @IBOutlet weak var cellTextLabel: UILabel!
+    @IBOutlet weak var cellActivityIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +26,16 @@ class WMakeItemCuisineCell: UITableViewCell {
     
     var cellText: String? {
         didSet {
-            cellTextField.text = cellText
+            cellTextLabel.text = cellText
         }
+    }
+    
+    func startAnimating() {
+        cellActivityIndicator.startAnimating()
+    }
+    
+    func stopAnimating() {
+        cellActivityIndicator.stopAnimating()
     }
 
 }

@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import CloudKit
+
+protocol WCuisineSearchControllerDelegate {
+    func cuisineSearchController(didFinishWith cuisine: CKRecord)
+}
 
 class WCuisineSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -20,6 +25,7 @@ class WCuisineSearchController: UIViewController, UITableViewDelegate, UITableVi
     
     var searchController: UISearchController!
     var resultsArray = [AnyObject]()
+    var delegate: WCuisineSearchControllerDelegate?
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - ViewController LifeCycle
@@ -105,13 +111,12 @@ class WCuisineSearchController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WCuisineSearchControllerCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WCuisineSearchCell", for: indexPath) as! WCuisineSearchCell
         
         let resultObj = resultsArray[indexPath.row]
         
         if let text = resultObj as? String {
-            cell.textLabel?.text = "Add '\(text)' as a new Cuisine"
-            cell.detailTextLabel?.text = ""
+            cell.cellText = "Add '\(text)' as a new Cuisine"
         }
         
         return cell
@@ -125,11 +130,27 @@ class WCuisineSearchController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let resultObj = resultsArray[indexPath.row]
         
         if let text = resultObj as? String {
+            
+            let cell = tableView.cellForRow(at: indexPath) as! WCuisineSearchCell
+            cell.startAnimating()
+            
             WManager.newCuisine(name: text, completionHandler: { (cuisine, error) in
-                
+                if let unwrapped = cuisine {
+                    cell.stopAnimating()
+                    self.searchController.dismiss(animated: false, completion: {
+                        self.dismiss(animated: true, completion: {
+                            self.delegate?.cuisineSearchController(didFinishWith: unwrapped)
+                        })
+                    })
+                }
+                else{
+                    self.simpleAlert(title: "Somthing went wrong", message: error?.localizedDescription)
+                }
             })
         }
     }

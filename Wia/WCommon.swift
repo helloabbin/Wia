@@ -9,7 +9,17 @@
 import UIKit
 
 class WCommon: NSObject {
+    
+}
 
+extension UIViewController {
+    
+    func simpleAlert(title: String, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 extension String {
@@ -44,9 +54,14 @@ extension String {
         }
     }
     
-    var priceValue: Double {
+    var priceValue: Double? {
         get {
-            return Double(cleaned.replacingOccurrences(of: NSLocale.current.currencySymbol!, with: ""))!
+            if let currencySymbol = NSLocale.current.currencySymbol {
+                return Double(cleaned.replacingOccurrences(of: currencySymbol, with: ""))
+            }
+            else{
+                return nil
+            }
         }
     }
 }

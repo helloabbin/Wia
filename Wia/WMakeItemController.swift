@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CloudKit
 
-class WMakeItemController: UITableViewController {
+class WMakeItemController: UITableViewController, WCuisineSearchControllerDelegate, WMakeItemNameCellDelegate, WMakeItemPriceCellDelegate, WItemMakeDescriptionCellDelegate {
     
     enum WMakeItemControllerRow: Int {
         case name
@@ -21,6 +22,14 @@ class WMakeItemController: UITableViewController {
     // MARK: - @IBOutlet
 
     @IBOutlet weak var nextButton: UIButton!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variables
+    
+    var itemName = ""
+    var itemPrice = 0.0
+    var itemCuisine: CKRecord?
+    var itemDescription = ""
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - ViewController LifeCycle
@@ -44,7 +53,11 @@ class WMakeItemController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "WCuisineSearchControllerSegue" {
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.viewControllers.first as! WCuisineSearchController
+            controller.delegate = self
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,11 +82,13 @@ class WMakeItemController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == WMakeItemControllerRow.name.rawValue {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakeItemTextFieldCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakeItemNameCell", for: indexPath) as! WMakeItemNameCell
+            cell.delegate = self
             return cell
         }
         else if indexPath.row == WMakeItemControllerRow.price.rawValue {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakeItemPriceCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakeItemPriceCell", for: indexPath) as! WMakeItemPriceCell
+            cell.delegate = self
             return cell
         }
         else if indexPath.row == WMakeItemControllerRow.cuisine.rawValue {
@@ -81,7 +96,8 @@ class WMakeItemController: UITableViewController {
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WItemMakeDescriptionCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WItemMakeDescriptionCell", for: indexPath) as! WItemMakeDescriptionCell
+            cell.delegate = self;
             return cell
         }
     }
@@ -103,4 +119,35 @@ class WMakeItemController: UITableViewController {
             performSegue(withIdentifier: "WCuisineSearchControllerSegue", sender: self)
         }
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WCuisineSearchControllerDelegate
+    
+    func cuisineSearchController(didFinishWith cuisine: CKRecord) {
+        itemCuisine = cuisine
+        let cell = tableView.cellForRow(at: IndexPath(row: WMakeItemControllerRow.cuisine.rawValue, section: 0)) as! WMakeItemCuisineCell
+        cell.cellText = itemCuisine?[WConstants.cuisine.name] as! String?
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WMakeItemNameCellDelegate
+    
+    func makeItemNameCellDidChangeEditing(text: String) {
+        itemName = text
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WMakeItemPriceCellDelegate
+    
+    func makeItemPriceCellDidChange(price: Double) {
+        itemPrice = price
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WItemMakeDescriptionCellDelegate
+    
+    func itemMakeDescriptionCellDidChangeEditing(text: String) {
+        itemDescription = text
+    }
+
 }

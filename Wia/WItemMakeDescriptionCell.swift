@@ -8,8 +8,16 @@
 
 import UIKit
 
-class WItemMakeDescriptionCell: UITableViewCell {
+protocol WItemMakeDescriptionCellDelegate {
+    func itemMakeDescriptionCellDidChangeEditing(text: String)
+}
 
+class WItemMakeDescriptionCell: UITableViewCell, UITextViewDelegate {
+
+    @IBOutlet weak var cellTextView: UITextView!
+    
+    var delegate: WItemMakeDescriptionCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +27,26 @@ class WItemMakeDescriptionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "type here" {
+            textView.text = ""
+            textView.textColor = UIColor.darkText
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "type here"
+            textView.textColor = UIColor(white: 0, alpha: 0.25)
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if let unWrapped = textView.text {
+            delegate?.itemMakeDescriptionCellDidChangeEditing(text: unWrapped.cleaned)
+        }
     }
 
 }
