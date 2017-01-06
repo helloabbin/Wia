@@ -27,4 +27,9 @@ class WManager: NSObject {
     class func searchCuisines(searchText:String, completion:(_ results: [CKRecord], _ searchedText: String) -> Void) {
         completion([], searchText.cleaned)
     }
+    
+    class func newCuisine(name:String, completion:(_ cuisine: CKRecord, _ succeeded: Bool) -> Void) {
+        let cuisineRecord = CKRecord(recordType: "")
+        
+    }
 }

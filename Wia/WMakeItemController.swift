@@ -97,4 +97,10 @@ class WMakeItemController: UITableViewController {
             return 60
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == WMakeItemControllerRow.cuisine.rawValue {
+            performSegue(withIdentifier: "WCuisinePickerControllerSegue", sender: self)
+        }
+    }
 }

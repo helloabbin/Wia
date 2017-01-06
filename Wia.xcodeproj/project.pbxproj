@@ -28,6 +28,8 @@
 		ED5F96991E1A7885005688A1 /* WItemMakeDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F96981E1A7885005688A1 /* WItemMakeDescriptionCell.swift */; };
 		ED5F969B1E1AAE14005688A1 /* WPlaceSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F969A1E1AAE14005688A1 /* WPlaceSearchController.swift */; };
 		ED5F969D1E1AB26F005688A1 /* WMakePlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5F969C1E1AB26F005688A1 /* WMakePlaceController.swift */; };
+		ED6F19991E1F829C00A0A6BA /* WCuisinePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F19981E1F829C00A0A6BA /* WCuisinePickerController.swift */; };
+		ED6F199C1E1F8F7300A0A6BA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED6F199B1E1F8F7300A0A6BA /* CloudKit.framework */; };
 		ED7365BD1E19193600599FE6 /* WItemSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365BC1E19193600599FE6 /* WItemSearchController.swift */; };
 		ED7365BF1E19304A00599FE6 /* WManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365BE1E19304A00599FE6 /* WManager.swift */; };
 		ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365C01E194D3100599FE6 /* WMakeItemController.swift */; };
@@ -72,6 +74,9 @@
 		ED5F96981E1A7885005688A1 /* WItemMakeDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WItemMakeDescriptionCell.swift; sourceTree = "<group>"; };
 		ED5F969A1E1AAE14005688A1 /* WPlaceSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPlaceSearchController.swift; sourceTree = "<group>"; };
 		ED5F969C1E1AB26F005688A1 /* WMakePlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakePlaceController.swift; sourceTree = "<group>"; };
+		ED6F19981E1F829C00A0A6BA /* WCuisinePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCuisinePickerController.swift; sourceTree = "<group>"; };
+		ED6F199A1E1F8F5200A0A6BA /* Wia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wia.entitlements; sourceTree = "<group>"; };
+		ED6F199B1E1F8F7300A0A6BA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		ED7365BC1E19193600599FE6 /* WItemSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WItemSearchController.swift; sourceTree = "<group>"; };
 		ED7365BE1E19304A00599FE6 /* WManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WManager.swift; sourceTree = "<group>"; };
 		ED7365C01E194D3100599FE6 /* WMakeItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakeItemController.swift; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DB902F94944C13F7ABE7666 /* Pods_Wia.framework in Frameworks */,
+				ED6F199C1E1F8F7300A0A6BA /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +111,7 @@
 		6E91F2640342D419A9EDF61C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED6F199B1E1F8F7300A0A6BA /* CloudKit.framework */,
 				63749B287E75DCD1B5A7B0B1 /* Pods_Wia.framework */,
 			);
 			name = Frameworks;
@@ -140,6 +147,7 @@
 		ED0D2D361E17B01A003A1BCD /* Wia */ = {
 			isa = PBXGroup;
 			children = (
+				ED6F199A1E1F8F5200A0A6BA /* Wia.entitlements */,
 				ED0D2D611E180AC2003A1BCD /* Modals */,
 				ED0D2D551E17F40F003A1BCD /* UIElements */,
 				ED0D2D581E17F44C003A1BCD /* ViewControllers */,
@@ -160,6 +168,7 @@
 				ED0D2D561E17F41B003A1BCD /* UICollectionViewCell */,
 				ED0D2D5C1E17FBC4003A1BCD /* Image Picker */,
 				ED0D2D5B1E17F4A7003A1BCD /* Camera */,
+				ED6F19971E1F827700A0A6BA /* Cuisine Picker */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -245,6 +254,14 @@
 			name = UITableViewCell;
 			sourceTree = "<group>";
 		};
+		ED6F19971E1F827700A0A6BA /* Cuisine Picker */ = {
+			isa = PBXGroup;
+			children = (
+				ED6F19981E1F829C00A0A6BA /* WCuisinePickerController.swift */,
+			);
+			name = "Cuisine Picker";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,6 +300,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = GFYAJXL68W;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -374,6 +399,7 @@
 			files = (
 				EDBAB3341E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift in Sources */,
 				ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */,
+				ED6F19991E1F829C00A0A6BA /* WCuisinePickerController.swift in Sources */,
 				ED905FCE1E1E923F00937E13 /* WReviewImageCollectionCell.swift in Sources */,
 				ED5F969B1E1AAE14005688A1 /* WPlaceSearchController.swift in Sources */,
 				EDC003001E1E23690040FAFE /* WMakePlaceAdditionalPhoneNumberCell.swift in Sources */,
@@ -525,6 +551,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Wia/Wia.entitlements;
 				DEVELOPMENT_TEAM = GFYAJXL68W;
 				INFOPLIST_FILE = Wia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -541,6 +568,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Wia/Wia.entitlements;
 				DEVELOPMENT_TEAM = GFYAJXL68W;
 				INFOPLIST_FILE = Wia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
