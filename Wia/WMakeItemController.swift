@@ -70,7 +70,18 @@ class WMakeItemController: UITableViewController, WCuisineSearchControllerDelega
     }
     
     @IBAction func nextButtonClicked(_ sender: Any) {
-        performSegue(withIdentifier: "WPlaceSearchControllerSegue", sender: self)
+        if itemName.length == 0 {
+            simpleAlert(title: "Missing Name", message: "What is the name of the item?")
+        }
+        else if itemPrice == 0.0 {
+            simpleAlert(title: "Missing Price", message: "How much does the item cost?")
+        }
+        else if itemCuisine == nil {
+            simpleAlert(title: "Missing Cuisine", message: "What type of cuisine is the item?")
+        }
+        else {
+            performSegue(withIdentifier: "WPlaceSearchControllerSegue", sender: self)
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +95,7 @@ class WMakeItemController: UITableViewController, WCuisineSearchControllerDelega
         if indexPath.row == WMakeItemControllerRow.name.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WMakeItemNameCell", for: indexPath) as! WMakeItemNameCell
             cell.delegate = self
+            cell.cellText = itemName
             return cell
         }
         else if indexPath.row == WMakeItemControllerRow.price.rawValue {

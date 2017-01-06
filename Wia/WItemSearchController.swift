@@ -66,7 +66,12 @@ class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "WMakeItemControllerSegue" {
+            let controller = segue.destination as! WMakeItemController
+            if let unWrapped = searchController.searchBar.text?.cleaned {
+                controller.itemName = unWrapped
+            }
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
