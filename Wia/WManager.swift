@@ -35,18 +35,18 @@ class WManager: NSObject {
         cuisineRecord.setObject(name as CKRecordValue?, forKey: WConstants.cuisine.name)
         cuisineRecord.setObject(name.capped as CKRecordValue?, forKey: WConstants.cuisine.cappedName)
         
-        let container = CKContainer.default()
-        let dataBase = container.publicCloudDatabase
-        
-        let begin = Date()
-        
-        dataBase.save(cuisineRecord) { (cuisine, error) in
-            let end = Date()
-            let timeInterval = end.timeIntervalSince(begin)
-            print(error?.localizedDescription ?? "Cuisine Saved: \(timeInterval)")
+//        let container = CKContainer.default()
+//        let dataBase = container.publicCloudDatabase
+//        
+//        let begin = Date()
+//        
+//        dataBase.save(cuisineRecord) { (cuisine, error) in
+//            let end = Date()
+//            let timeInterval = end.timeIntervalSince(begin)
+//            print(error?.localizedDescription ?? "Cuisine Saved: \(timeInterval)")
             DispatchQueue.main.async {
-                completionHandler(cuisine, error)
+                completionHandler(cuisineRecord, nil)
             }
-        }
+//        }
     }
 }

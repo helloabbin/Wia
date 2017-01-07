@@ -8,12 +8,12 @@
 
 import UIKit
 
-class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDelegate, WMakePlaceAdditionalPhoneNumberCellDelegate, WMakePlaceWorkingHoursCellDelegate, WMakePlaceAdditionalWorkingHoursCellDelegate {
+class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDelegate, WMakePlaceAdditionalPhoneNumberCellDelegate, WMakePlaceWorkingHoursCellDelegate, WMakePlaceAdditionalWorkingHoursCellDelegate, WMakePlaceAddressCellDelegate {
     
     enum WMakePlaceControllerSection: Int {
         case name
         case address
-        case coordinates
+        case location
         case phoneNumber
         case workingDays
         case workinghours
@@ -24,6 +24,9 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     
     var numberOfPhoneNumberCells = 1
     var numberOfWorkingHourCells = 1
+    
+    var placeName = ""
+    var placeAddress = ""
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - ViewController LifeCycle
@@ -82,14 +85,16 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == WMakePlaceControllerSection.name.rawValue {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceNameCell", for: indexPath) as! WMakePlaceNameCell
+            cell.cellText = placeName
             return cell
         }
         else if indexPath.section == WMakePlaceControllerSection.address.rawValue {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceAddressCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceAddressCell", for: indexPath) as! WMakePlaceAddressCell
+            cell.delegate = self
             return cell
         }
-        else if indexPath.section == WMakePlaceControllerSection.coordinates.rawValue {
+        else if indexPath.section == WMakePlaceControllerSection.location.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceCoordinatesCell", for: indexPath)
             return cell
         }
@@ -140,6 +145,12 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == WMakePlaceControllerSection.location.rawValue {
+            performSegue(withIdentifier: "WMapViewControllerSegue", sender: self)
+        }
+    }
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - WMakePlacePhoneNumberCellDelegate
     
@@ -170,5 +181,12 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     func additionalWorkingHoursCellAccessoryButtonTapped(cell: WMakePlaceAdditionalWorkingHoursCell) {
         numberOfWorkingHourCells -= 1
         tableView.reloadSections(IndexSet(integer: WMakePlaceControllerSection.workinghours.rawValue), with: .automatic)
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WMakePlaceAddressCellDelegate
+    
+    func makePlaceAddressCellDidChangeEditing(text: String) {
+        placeAddress = text
     }
 }

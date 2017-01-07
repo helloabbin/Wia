@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol WMakePlaceAddressCellDelegate {
+    func makePlaceAddressCellDidChangeEditing(text: String)
+}
+
 class WMakePlaceAddressCell: UITableViewCell {
 
+    var delegate:WMakePlaceAddressCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +25,12 @@ class WMakePlaceAddressCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
+        if let unwrapped = sender.text {
+            delegate?.makePlaceAddressCellDidChangeEditing(text: unwrapped.cleaned)
+        }
     }
 
 }

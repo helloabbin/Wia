@@ -64,7 +64,12 @@ class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "WMakePlaceControllerSegue" {
+            let controller = segue.destination as! WMakePlaceController
+            if let unWrapped = searchController.searchBar.text?.cleaned {
+                controller.placeName = unWrapped
+            }
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

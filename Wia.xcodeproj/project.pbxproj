@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DB902F94944C13F7ABE7666 /* Pods_Wia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63749B287E75DCD1B5A7B0B1 /* Pods_Wia.framework */; };
+		ED0B08E21E20CBFE00F4455F /* WMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B08E11E20CBFE00F4455F /* WMapViewController.swift */; };
 		ED0D2D381E17B01A003A1BCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D371E17B01A003A1BCD /* AppDelegate.swift */; };
 		ED0D2D3A1E17B01A003A1BCD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D391E17B01A003A1BCD /* FirstViewController.swift */; };
 		ED0D2D3C1E17B01A003A1BCD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D2D3B1E17B01A003A1BCD /* SecondViewController.swift */; };
@@ -54,6 +55,7 @@
 		63749B287E75DCD1B5A7B0B1 /* Pods_Wia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5258ADCABFDCDF843E76EF5 /* Pods-Wia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wia/Pods-Wia.release.xcconfig"; sourceTree = "<group>"; };
 		E647F56C897D13DDDABD932C /* Pods-Wia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wia/Pods-Wia.debug.xcconfig"; sourceTree = "<group>"; };
+		ED0B08E11E20CBFE00F4455F /* WMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMapViewController.swift; sourceTree = "<group>"; };
 		ED0D2D341E17B01A003A1BCD /* Wia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0D2D371E17B01A003A1BCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED0D2D391E17B01A003A1BCD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				ED7365C01E194D3100599FE6 /* WMakeItemController.swift */,
 				ED5F969C1E1AB26F005688A1 /* WMakePlaceController.swift */,
 				ED7365C21E194D5900599FE6 /* WReviewController.swift */,
+				ED0B08E11E20CBFE00F4455F /* WMapViewController.swift */,
 				ED0D2D3B1E17B01A003A1BCD /* SecondViewController.swift */,
 			);
 			name = ViewControllers;
@@ -397,6 +400,7 @@
 			files = (
 				EDBAB3341E1E2A7F0087AE8F /* WMakePlaceAdditionalWorkingHoursCell.swift in Sources */,
 				EDE14C321E1F98C0003A02B1 /* WConstants.swift in Sources */,
+				ED0B08E21E20CBFE00F4455F /* WMapViewController.swift in Sources */,
 				ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */,
 				ED905FCE1E1E923F00937E13 /* WReviewImageCollectionCell.swift in Sources */,
 				ED90E9361E1FAC94002AD84D /* WCuisineSearchCell.swift in Sources */,

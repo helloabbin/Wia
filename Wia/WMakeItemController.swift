@@ -70,18 +70,18 @@ class WMakeItemController: UITableViewController, WCuisineSearchControllerDelega
     }
     
     @IBAction func nextButtonClicked(_ sender: Any) {
-        if itemName.length == 0 {
-            simpleAlert(title: "Missing Name", message: "What is the name of the item?")
-        }
-        else if itemPrice == 0.0 {
-            simpleAlert(title: "Missing Price", message: "How much does the item cost?")
-        }
-        else if itemCuisine == nil {
-            simpleAlert(title: "Missing Cuisine", message: "What type of cuisine is the item?")
-        }
-        else {
+//        if itemName.length == 0 {
+//            simpleAlert(title: "Missing Name", message: "What is the name of the item?")
+//        }
+//        else if itemPrice == 0.0 {
+//            simpleAlert(title: "Missing Price", message: "How much does the item cost?")
+//        }
+//        else if itemCuisine == nil {
+//            simpleAlert(title: "Missing Cuisine", message: "What type of cuisine is the item?")
+//        }
+//        else {
             performSegue(withIdentifier: "WPlaceSearchControllerSegue", sender: self)
-        }
+//        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
