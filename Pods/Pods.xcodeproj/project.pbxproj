@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0104830478F68244D9627F6DC205D940 /* MetadataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88E762BAF4DEF1CDEB4A5D159FE7245 /* MetadataManager.swift */; };
+		0104830478F68244D9627F6DC205D940 /* MetadataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBFFA31C2D2A0A2486C0FB0231F5DA /* MetadataManager.swift */; };
 		01258FA088C5225F0478CD250201653A /* Pods-Wia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B540D3D1B7DB5A3D05C6C207C2CE8287 /* Pods-Wia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A0E4409D9DAE435A35BAD353F02E60A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6772C687AC2073631EBB81BB33CE2F /* Formatter.swift */; };
-		345550ECBA5ABA4FF86DCB480D4A3A58 /* PhoneNumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD43FD5308A03815C850CEF37986E2 /* PhoneNumberParser.swift */; };
-		4F9F1A87FA2940B18DBD32B0180D50FA /* PhoneNumberMetadata.json in Resources */ = {isa = PBXBuildFile; fileRef = FB66E6B42D4CFB025E0815123D987E60 /* PhoneNumberMetadata.json */; };
-		5F74DB5E632AB8F370CADB9A57A62905 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D92BD9E8D294BBA9090C044AB8646E /* ParseManager.swift */; };
+		0A0E4409D9DAE435A35BAD353F02E60A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396BED6056939CDC8C367D4DDED25BC7 /* Formatter.swift */; };
+		345550ECBA5ABA4FF86DCB480D4A3A58 /* PhoneNumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A0740184A4BE6BE0250AE294CB7E80 /* PhoneNumberParser.swift */; };
+		4F9F1A87FA2940B18DBD32B0180D50FA /* PhoneNumberMetadata.json in Resources */ = {isa = PBXBuildFile; fileRef = A11A9AD0FA79637DBE25B33C6153F485 /* PhoneNumberMetadata.json */; };
+		5F74DB5E632AB8F370CADB9A57A62905 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D2F9373960B2C7461C015B46C149C /* ParseManager.swift */; };
 		7358A93C9FC5598A4E68C8A74B916747 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95668A6065612C022AA4915428D0BDD2 /* Foundation.framework */; };
 		92F1A7B91817AC5A011A3EACBD1A7397 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95668A6065612C022AA4915428D0BDD2 /* Foundation.framework */; };
-		9BF0B3132715704E433B205423D73740 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A9EB42E2625AB4DB78C95367E03C4 /* Constants.swift */; };
-		9C8BF7D4C243818BF3FBF03E54F44295 /* PhoneNumberKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DE95FD3647803DA8B888724C301256 /* PhoneNumberKit-dummy.m */; };
-		AECF93568D922159B76A632196FCA6E9 /* NSRegularExpression+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB382A1DC9D47BEB3291275AF328F7CC /* NSRegularExpression+Swift.swift */; };
+		9BF0B3132715704E433B205423D73740 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9698171C9869CEA35B7B273680D986 /* Constants.swift */; };
+		9C8BF7D4C243818BF3FBF03E54F44295 /* PhoneNumberKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A435A36E83855A34FEEB969E45B383F /* PhoneNumberKit-dummy.m */; };
+		AECF93568D922159B76A632196FCA6E9 /* NSRegularExpression+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30C17DB12AE82FA8D5F80BD30B598F /* NSRegularExpression+Swift.swift */; };
 		AF704068F6958A363E822739215287E8 /* Pods-Wia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD76774CAEB8E53D84167AD38B6C09E /* Pods-Wia-dummy.m */; };
-		B6EADA01029546ADA5D4718F1471799C /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388C782FFA79D727AA25F000AD2E41A1 /* PhoneNumber.swift */; };
+		B6EADA01029546ADA5D4718F1471799C /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E85D4F628863C5E7E7F2CDD86811E4 /* PhoneNumber.swift */; };
 		B9F18EA9601FBE8D39E0EC20AAC68532 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A123CFEB0D34C2698C3DBF81105863 /* CoreTelephony.framework */; };
-		D4D11238776F6517BE1E5BF70ABBF452 /* PhoneNumberKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F1D58E392E3EA034359BFCB85AEE7BA8 /* PhoneNumberKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D83522A96EB0E8AC32E66D149A4C7D13 /* MetadataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A83824798AC6A74FA5235279068643 /* MetadataTypes.swift */; };
-		E2CDF70ADCB177E5A75995E34BF537A1 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF11D4BDB789602A403BE2B34D2A /* TextField.swift */; };
-		F0AAC8C0A171F5D16D5CC4EDFCFD3AA1 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE678C8F08A96CB071E1F6D174181 /* RegexManager.swift */; };
-		F3471ADCD4C3F3995D27362A2DA5054A /* PhoneNumberKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BB60694F548C06D99DC06C1C63075 /* PhoneNumberKit.swift */; };
-		FD2E20B69C2E19818E62F6570D93917C /* PartialFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D17CEFA7CA0EA8CDEB2502FC249B1 /* PartialFormatter.swift */; };
+		D4D11238776F6517BE1E5BF70ABBF452 /* PhoneNumberKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7071F07F34C000B9D2D66A17D771B1DF /* PhoneNumberKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D83522A96EB0E8AC32E66D149A4C7D13 /* MetadataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F2C31D59491F5788D2CE324912180 /* MetadataTypes.swift */; };
+		E2CDF70ADCB177E5A75995E34BF537A1 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D59478D362D85EFD11C3C83344096E /* TextField.swift */; };
+		F0AAC8C0A171F5D16D5CC4EDFCFD3AA1 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C3F369382E755A50ADB5ECB9130A2 /* RegexManager.swift */; };
+		F3471ADCD4C3F3995D27362A2DA5054A /* PhoneNumberKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81662E7E333BF69DE2CD644559D5870D /* PhoneNumberKit.swift */; };
+		FD2E20B69C2E19818E62F6570D93917C /* PartialFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398F5C15541FA3442EFA7E2CFBF0351 /* PartialFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,39 +40,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0316E4E6A166ED99D771227A1122E045 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
-		06BD43FD5308A03815C850CEF37986E2 /* PhoneNumberParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberParser.swift; path = PhoneNumberKit/PhoneNumberParser.swift; sourceTree = "<group>"; };
-		36D92BD9E8D294BBA9090C044AB8646E /* ParseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseManager.swift; path = PhoneNumberKit/ParseManager.swift; sourceTree = "<group>"; };
-		388C782FFA79D727AA25F000AD2E41A1 /* PhoneNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumber.swift; path = PhoneNumberKit/PhoneNumber.swift; sourceTree = "<group>"; };
-		3F6772C687AC2073631EBB81BB33CE2F /* Formatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Formatter.swift; path = PhoneNumberKit/Formatter.swift; sourceTree = "<group>"; };
+		03BB0304AE7EEE51A7ED0E5C235416C7 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		0D6D4152759FF694DF5CBAACD8C60A15 /* PhoneNumberKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PhoneNumberKit.xcconfig; sourceTree = "<group>"; };
+		0FB0B419F123E6ED19C20B34D51B4038 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		132404B40B508B3D58A006D693861D9F /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
+		2A435A36E83855A34FEEB969E45B383F /* PhoneNumberKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PhoneNumberKit-dummy.m"; sourceTree = "<group>"; };
+		396BED6056939CDC8C367D4DDED25BC7 /* Formatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Formatter.swift; path = PhoneNumberKit/Formatter.swift; sourceTree = "<group>"; };
+		3C2D2F9373960B2C7461C015B46C149C /* ParseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseManager.swift; path = PhoneNumberKit/ParseManager.swift; sourceTree = "<group>"; };
 		444F83B0CB80D09E8AF4C4C5CDB08BC7 /* Pods-Wia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Wia.debug.xcconfig"; sourceTree = "<group>"; };
 		44A123CFEB0D34C2698C3DBF81105863 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
-		450D17CEFA7CA0EA8CDEB2502FC249B1 /* PartialFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PartialFormatter.swift; path = PhoneNumberKit/PartialFormatter.swift; sourceTree = "<group>"; };
+		48A0740184A4BE6BE0250AE294CB7E80 /* PhoneNumberParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberParser.swift; path = PhoneNumberKit/PhoneNumberParser.swift; sourceTree = "<group>"; };
 		4994ADD38535A82FF976F7D4970F8EF0 /* Pods-Wia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Wia.modulemap"; sourceTree = "<group>"; };
 		4FD76774CAEB8E53D84167AD38B6C09E /* Pods-Wia-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Wia-dummy.m"; sourceTree = "<group>"; };
-		51DE95FD3647803DA8B888724C301256 /* PhoneNumberKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PhoneNumberKit-dummy.m"; sourceTree = "<group>"; };
 		539FEC53A2D61785F537514B8B59A28F /* Pods_Wia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Wia.framework; path = "Pods-Wia.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58503096EEF6279069E4175753CFCB7B /* Pods-Wia-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Wia-resources.sh"; sourceTree = "<group>"; };
-		61552E67AE321061EA8D2771C22CEF20 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		608B7F7D67A714BAA5C3E5BAC0069A3F /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		6A0C3F369382E755A50ADB5ECB9130A2 /* RegexManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegexManager.swift; path = PhoneNumberKit/RegexManager.swift; sourceTree = "<group>"; };
+		7071F07F34C000B9D2D66A17D771B1DF /* PhoneNumberKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-umbrella.h"; sourceTree = "<group>"; };
+		7398F5C15541FA3442EFA7E2CFBF0351 /* PartialFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PartialFormatter.swift; path = PhoneNumberKit/PartialFormatter.swift; sourceTree = "<group>"; };
+		7F30C17DB12AE82FA8D5F80BD30B598F /* NSRegularExpression+Swift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSRegularExpression+Swift.swift"; path = "PhoneNumberKit/NSRegularExpression+Swift.swift"; sourceTree = "<group>"; };
+		81662E7E333BF69DE2CD644559D5870D /* PhoneNumberKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberKit.swift; path = PhoneNumberKit/PhoneNumberKit.swift; sourceTree = "<group>"; };
 		8F520DAECF13EC1D86318B9C8DB6DE36 /* Pods-Wia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Wia.release.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95668A6065612C022AA4915428D0BDD2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		96AD6874FFD69EAE10E12C40D8D8C879 /* Pods-Wia-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Wia-frameworks.sh"; sourceTree = "<group>"; };
-		97A83824798AC6A74FA5235279068643 /* MetadataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataTypes.swift; path = PhoneNumberKit/MetadataTypes.swift; sourceTree = "<group>"; };
 		989F81AF32D66786796D05EE601EA4C9 /* Pods-Wia-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Wia-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D5B3762F2879BAF0C070AF1869223CF /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
 		9D87EA83755A431A650E973D8F1B7584 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9EAC7AC4291985780F96CF59A8CB3C7D /* PhoneNumberKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PhoneNumberKit.xcconfig; sourceTree = "<group>"; };
-		A30BB60694F548C06D99DC06C1C63075 /* PhoneNumberKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberKit.swift; path = PhoneNumberKit/PhoneNumberKit.swift; sourceTree = "<group>"; };
-		A36CE678C8F08A96CB071E1F6D174181 /* RegexManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegexManager.swift; path = PhoneNumberKit/RegexManager.swift; sourceTree = "<group>"; };
-		A88E762BAF4DEF1CDEB4A5D159FE7245 /* MetadataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataManager.swift; path = PhoneNumberKit/MetadataManager.swift; sourceTree = "<group>"; };
+		A11A9AD0FA79637DBE25B33C6153F485 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
 		B540D3D1B7DB5A3D05C6C207C2CE8287 /* Pods-Wia-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Wia-umbrella.h"; sourceTree = "<group>"; };
-		BB0A9EB42E2625AB4DB78C95367E03C4 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = PhoneNumberKit/Constants.swift; sourceTree = "<group>"; };
+		B75F2C31D59491F5788D2CE324912180 /* MetadataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataTypes.swift; path = PhoneNumberKit/MetadataTypes.swift; sourceTree = "<group>"; };
+		B777628A104E590B32B28E8FAC0D8920 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
+		C5E85D4F628863C5E7E7F2CDD86811E4 /* PhoneNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumber.swift; path = PhoneNumberKit/PhoneNumber.swift; sourceTree = "<group>"; };
+		C8E9CB4CF8611C3F3FE6F118BDD94247 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		C902FBD9BEC6B0BC542BD25EB3316B91 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9CF5E2366F7678C49027D6386F63017 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PhoneNumberKit.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA60CF11D4BDB789602A403BE2B34D2A /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = PhoneNumberKit/UI/TextField.swift; sourceTree = "<group>"; };
-		DB382A1DC9D47BEB3291275AF328F7CC /* NSRegularExpression+Swift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSRegularExpression+Swift.swift"; path = "PhoneNumberKit/NSRegularExpression+Swift.swift"; sourceTree = "<group>"; };
-		F1D58E392E3EA034359BFCB85AEE7BA8 /* PhoneNumberKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-umbrella.h"; sourceTree = "<group>"; };
-		FB66E6B42D4CFB025E0815123D987E60 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
+		CAEBFFA31C2D2A0A2486C0FB0231F5DA /* MetadataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataManager.swift; path = PhoneNumberKit/MetadataManager.swift; sourceTree = "<group>"; };
+		DD9698171C9869CEA35B7B273680D986 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = PhoneNumberKit/Constants.swift; sourceTree = "<group>"; };
+		E3D59478D362D85EFD11C3C83344096E /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = PhoneNumberKit/UI/TextField.swift; sourceTree = "<group>"; };
 		FFA876CA2E5D6095A80876FEA16AD265 /* Pods-Wia-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Wia-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050E74090BAC914B288027B8AF1B27E3 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				DBF1EA6F80257A920854D8E34F528C03 /* Frameworks */,
+				5A957063FBE4D61102F36E4660305F6F /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
 		077AAFBDC1C4C9D7EBE9C80494A59B1C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +117,25 @@
 				539FEC53A2D61785F537514B8B59A28F /* Pods_Wia.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1995055B9D35DECA5544FD5EAAE572FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FB0B419F123E6ED19C20B34D51B4038 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25DFE9DE86D0B4ABE795BAD3C8EFE87E /* PhoneNumberKit */ = {
+			isa = PBXGroup;
+			children = (
+				C4F2719FC9056C941EC19B0FABB5246D /* PhoneNumberKitCore */,
+				F3DD279A1354DA05A4D7630CC2DCBCF4 /* Support Files */,
+				F9D10F01553FCAB78D1AD88BF9D1980C /* UIKit */,
+			);
+			name = PhoneNumberKit;
+			path = PhoneNumberKit;
 			sourceTree = "<group>";
 		};
 		2BF6C773E6494408711C5AD78BA7C80F /* Targets Support Files */ = {
@@ -114,12 +146,12 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		3DED061D69B7968B1E1E9ADD352F0E37 /* Pods */ = {
+		3C7BFCB1BA0ED774936DB49022C14CAF /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B22156ADD8E0776F11D76517FCC0BCDA /* PhoneNumberKit */,
+				1995055B9D35DECA5544FD5EAAE572FC /* Frameworks */,
 			);
-			name = Pods;
+			name = Base;
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -130,10 +162,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4D131F9248B6C4061432B9C2BE880408 /* Resources */ = {
+		58B571AA1D5D9D751BBD19513F86328D /* GoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				FB66E6B42D4CFB025E0815123D987E60 /* PhoneNumberMetadata.json */,
+				3C7BFCB1BA0ED774936DB49022C14CAF /* Base */,
+				050E74090BAC914B288027B8AF1B27E3 /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		5A957063FBE4D61102F36E4660305F6F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				03BB0304AE7EEE51A7ED0E5C235416C7 /* GoogleMaps.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -143,62 +185,19 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				3DED061D69B7968B1E1E9ADD352F0E37 /* Pods */,
+				A14C51D2B6650EB5E629A86D9354D80C /* Pods */,
 				077AAFBDC1C4C9D7EBE9C80494A59B1C /* Products */,
 				2BF6C773E6494408711C5AD78BA7C80F /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8FF46B519872C8A04D10957ED5348F4F /* PhoneNumberKitCore */ = {
+		A14C51D2B6650EB5E629A86D9354D80C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BB0A9EB42E2625AB4DB78C95367E03C4 /* Constants.swift */,
-				3F6772C687AC2073631EBB81BB33CE2F /* Formatter.swift */,
-				A88E762BAF4DEF1CDEB4A5D159FE7245 /* MetadataManager.swift */,
-				97A83824798AC6A74FA5235279068643 /* MetadataTypes.swift */,
-				DB382A1DC9D47BEB3291275AF328F7CC /* NSRegularExpression+Swift.swift */,
-				36D92BD9E8D294BBA9090C044AB8646E /* ParseManager.swift */,
-				450D17CEFA7CA0EA8CDEB2502FC249B1 /* PartialFormatter.swift */,
-				388C782FFA79D727AA25F000AD2E41A1 /* PhoneNumber.swift */,
-				A30BB60694F548C06D99DC06C1C63075 /* PhoneNumberKit.swift */,
-				06BD43FD5308A03815C850CEF37986E2 /* PhoneNumberParser.swift */,
-				A36CE678C8F08A96CB071E1F6D174181 /* RegexManager.swift */,
-				4D131F9248B6C4061432B9C2BE880408 /* Resources */,
+				58B571AA1D5D9D751BBD19513F86328D /* GoogleMaps */,
+				25DFE9DE86D0B4ABE795BAD3C8EFE87E /* PhoneNumberKit */,
 			);
-			name = PhoneNumberKitCore;
-			sourceTree = "<group>";
-		};
-		9D73A46D64A596FE93E9E5FA219576C1 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				61552E67AE321061EA8D2771C22CEF20 /* Info.plist */,
-				9D5B3762F2879BAF0C070AF1869223CF /* PhoneNumberKit.modulemap */,
-				9EAC7AC4291985780F96CF59A8CB3C7D /* PhoneNumberKit.xcconfig */,
-				51DE95FD3647803DA8B888724C301256 /* PhoneNumberKit-dummy.m */,
-				0316E4E6A166ED99D771227A1122E045 /* PhoneNumberKit-prefix.pch */,
-				F1D58E392E3EA034359BFCB85AEE7BA8 /* PhoneNumberKit-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/PhoneNumberKit";
-			sourceTree = "<group>";
-		};
-		A6AE5D6F5035B195A5AE6CEB8918D04F /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				DA60CF11D4BDB789602A403BE2B34D2A /* TextField.swift */,
-			);
-			name = UIKit;
-			sourceTree = "<group>";
-		};
-		B22156ADD8E0776F11D76517FCC0BCDA /* PhoneNumberKit */ = {
-			isa = PBXGroup;
-			children = (
-				8FF46B519872C8A04D10957ED5348F4F /* PhoneNumberKitCore */,
-				9D73A46D64A596FE93E9E5FA219576C1 /* Support Files */,
-				A6AE5D6F5035B195A5AE6CEB8918D04F /* UIKit */,
-			);
-			name = PhoneNumberKit;
-			path = PhoneNumberKit;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		BAF90123770E0BCCD63FCDFF36422A77 /* Pods-Wia */ = {
@@ -219,6 +218,33 @@
 			path = "Target Support Files/Pods-Wia";
 			sourceTree = "<group>";
 		};
+		C0DAEC6C693317DE3AD21A6697656B84 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A11A9AD0FA79637DBE25B33C6153F485 /* PhoneNumberMetadata.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C4F2719FC9056C941EC19B0FABB5246D /* PhoneNumberKitCore */ = {
+			isa = PBXGroup;
+			children = (
+				DD9698171C9869CEA35B7B273680D986 /* Constants.swift */,
+				396BED6056939CDC8C367D4DDED25BC7 /* Formatter.swift */,
+				CAEBFFA31C2D2A0A2486C0FB0231F5DA /* MetadataManager.swift */,
+				B75F2C31D59491F5788D2CE324912180 /* MetadataTypes.swift */,
+				7F30C17DB12AE82FA8D5F80BD30B598F /* NSRegularExpression+Swift.swift */,
+				3C2D2F9373960B2C7461C015B46C149C /* ParseManager.swift */,
+				7398F5C15541FA3442EFA7E2CFBF0351 /* PartialFormatter.swift */,
+				C5E85D4F628863C5E7E7F2CDD86811E4 /* PhoneNumber.swift */,
+				81662E7E333BF69DE2CD644559D5870D /* PhoneNumberKit.swift */,
+				48A0740184A4BE6BE0250AE294CB7E80 /* PhoneNumberParser.swift */,
+				6A0C3F369382E755A50ADB5ECB9130A2 /* RegexManager.swift */,
+				C0DAEC6C693317DE3AD21A6697656B84 /* Resources */,
+			);
+			name = PhoneNumberKitCore;
+			sourceTree = "<group>";
+		};
 		CC3A043BAD155FCD0926874240E6435B /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +252,37 @@
 				95668A6065612C022AA4915428D0BDD2 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		DBF1EA6F80257A920854D8E34F528C03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8E9CB4CF8611C3F3FE6F118BDD94247 /* GoogleMaps.framework */,
+				608B7F7D67A714BAA5C3E5BAC0069A3F /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3DD279A1354DA05A4D7630CC2DCBCF4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C902FBD9BEC6B0BC542BD25EB3316B91 /* Info.plist */,
+				132404B40B508B3D58A006D693861D9F /* PhoneNumberKit.modulemap */,
+				0D6D4152759FF694DF5CBAACD8C60A15 /* PhoneNumberKit.xcconfig */,
+				2A435A36E83855A34FEEB969E45B383F /* PhoneNumberKit-dummy.m */,
+				B777628A104E590B32B28E8FAC0D8920 /* PhoneNumberKit-prefix.pch */,
+				7071F07F34C000B9D2D66A17D771B1DF /* PhoneNumberKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PhoneNumberKit";
+			sourceTree = "<group>";
+		};
+		F9D10F01553FCAB78D1AD88BF9D1980C /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E3D59478D362D85EFD11C3C83344096E /* TextField.swift */,
+			);
+			name = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,7 +468,7 @@
 		};
 		27097AF7D9F196EDDC5FAA5D4DF4E65D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EAC7AC4291985780F96CF59A8CB3C7D /* PhoneNumberKit.xcconfig */;
+			baseConfigurationReference = 0D6D4152759FF694DF5CBAACD8C60A15 /* PhoneNumberKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -443,7 +500,7 @@
 		};
 		4E15751FD74D2A5383BDF2A0EB1EC0B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EAC7AC4291985780F96CF59A8CB3C7D /* PhoneNumberKit.xcconfig */;
+			baseConfigurationReference = 0D6D4152759FF694DF5CBAACD8C60A15 /* PhoneNumberKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

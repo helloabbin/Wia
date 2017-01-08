@@ -8,5 +8,6 @@ target 'Wia' do
   # Pods for Wia
 
 pod 'PhoneNumberKit', '~> 1.2'
+pod 'GoogleMaps'
 
 end

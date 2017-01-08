@@ -1,4 +1,9 @@
 PODS:
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
   - PhoneNumberKit (1.2.1):
     - PhoneNumberKit/PhoneNumberKitCore (= 1.2.1)
     - PhoneNumberKit/UIKit (= 1.2.1)
@@ -7,11 +12,13 @@ PODS:
     - PhoneNumberKit/PhoneNumberKitCore
 
 DEPENDENCIES:
+  - GoogleMaps
   - PhoneNumberKit (~> 1.2)
 
 SPEC CHECKSUMS:
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   PhoneNumberKit: 7917d5f1ca21cacce535e9aa9c6d7a4537f25726
 
-PODFILE CHECKSUM: da765c364827df2f86d42fb99ad733587bd0c4aa
+PODFILE CHECKSUM: a9d8e531e3a6f620533880841fcc54fbd4a4521a
 
 COCOAPODS: 1.1.1
