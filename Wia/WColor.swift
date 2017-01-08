@@ -24,7 +24,7 @@ class WColor: UIColor {
     
     open class var mainColor: UIColor {
         get {
-            return UIColor.init(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+            return UIColor.init(red: 255/255, green: 171/255, blue: 0/255, alpha: 1)
         }
     }
     

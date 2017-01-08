@@ -10,6 +10,8 @@ import UIKit
 
 class WMakePlaceCoordinatesCell: UITableViewCell {
 
+    @IBOutlet weak var cellTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +21,12 @@ class WMakePlaceCoordinatesCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    var cellText: String? {
+        didSet {
+            cellTextField.text = cellText
+        }
     }
 
 }

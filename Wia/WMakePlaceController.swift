@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDelegate, WMakePlaceAdditionalPhoneNumberCellDelegate, WMakePlaceWorkingHoursCellDelegate, WMakePlaceAdditionalWorkingHoursCellDelegate, WMakePlaceAddressCellDelegate {
+class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDelegate, WMakePlaceAdditionalPhoneNumberCellDelegate, WMakePlaceWorkingHoursCellDelegate, WMakePlaceAdditionalWorkingHoursCellDelegate, WMakePlaceAddressCellDelegate, WMapViewControllerDelegate {
     
     enum WMakePlaceControllerSection: Int {
         case name
@@ -27,6 +28,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     
     var placeName = ""
     var placeAddress = ""
+    var placeLocation: CLLocation?
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - ViewController LifeCycle
@@ -48,7 +50,10 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "WMapViewControllerSegue" {
+            let controller = segue.destination as! WMapViewController
+            controller.delegate = self
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -188,5 +193,21 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     
     func makePlaceAddressCellDidChangeEditing(text: String) {
         placeAddress = text
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WMapViewControllerDelegate
+    
+    func mapViewController(didFinishWith location: CLLocation) {
+        placeLocation = location
+        let cell : WMakePlaceCoordinatesCell = tableView.cellForRow(at: IndexPath(row: 0, section: WMakePlaceControllerSection.location.rawValue)) as! WMakePlaceCoordinatesCell
+        
+        let lat = placeLocation!.coordinate.latitude
+        let condensedLat = Double(round(100000*lat)/100000)
+        
+        let log = placeLocation!.coordinate.longitude
+        let condensedlog = Double(round(100000*log)/100000)
+        
+        cell.cellText = "\(condensedLat), \(condensedlog)"
     }
 }
