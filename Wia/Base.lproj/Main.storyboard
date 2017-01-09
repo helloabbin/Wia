@@ -474,7 +474,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's share this with the world. Tell as a few details about this." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFd-ix-G38">
-                                    <rect key="frame" x="20" y="49" width="335" height="32"/>
+                                    <rect key="frame" x="20" y="49" width="335" height="31.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.54125642123287676" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -1231,13 +1231,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="type here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TvW-JX-okJ">
-                                            <rect key="frame" x="59" y="35" width="108" height="60"/>
+                                            <rect key="frame" x="59" y="35" width="107.5" height="60"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TILL" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sb8-ra-XKq">
-                                            <rect key="frame" x="175" y="58" width="25" height="15"/>
+                                            <rect key="frame" x="174.5" y="58" width="25" height="15"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                             <color key="textColor" white="0.0" alpha="0.53625321061643838" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1253,7 +1253,7 @@
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="type here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWT-kM-S2L">
-                                            <rect key="frame" x="208" y="36" width="107" height="60"/>
+                                            <rect key="frame" x="207.5" y="36" width="107.5" height="60"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -1637,27 +1637,27 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.10014447773972603" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Uy-h6-B3o">
-                                                    <rect key="frame" x="50" y="18" width="25" height="24"/>
+                                                    <rect key="frame" x="50" y="18" width="24.5" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.10014447773972603" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rhq-ir-CjM">
-                                                    <rect key="frame" x="76" y="18" width="24" height="24"/>
+                                                    <rect key="frame" x="75.5" y="18" width="24" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.10014447773972603" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3G-5X-Vz5">
-                                                    <rect key="frame" x="101" y="18" width="24" height="24"/>
+                                                    <rect key="frame" x="100.5" y="18" width="24" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.10014447773972603" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8D-cZ-rQ0">
-                                                    <rect key="frame" x="126" y="18" width="24" height="24"/>
+                                                    <rect key="frame" x="125.5" y="18" width="24" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.10014447773972603" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF3-c4-Zst">
-                                                    <rect key="frame" x="151" y="18" width="24" height="24"/>
+                                                    <rect key="frame" x="150.5" y="18" width="24" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.10014447773972603" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEa-Ls-iX3">
-                                                    <rect key="frame" x="176" y="18" width="24" height="24"/>
+                                                    <rect key="frame" x="175.5" y="18" width="24.5" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.10014447773972603" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUe-ei-Tfw">
@@ -1862,7 +1862,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7TZ-pa-wnl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tly-y0-oDh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tly-y0-oDh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1880,7 +1880,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j9x-Of-IKT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1kr-MV-Ous">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1kr-MV-Ous">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1898,7 +1898,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wQv-ot-DvK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M7X-Pz-ENf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M7X-Pz-ENf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

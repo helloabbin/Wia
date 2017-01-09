@@ -25,6 +25,7 @@ class WMakePlacePhoneNumberCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        cellTextField.withPrefix = false
         if let unWrapped = phoneNumberKit.countryCode(for: PhoneNumberKit.defaultRegionCode()) {
             defaultCountryCode = "+\(unWrapped)"
             cellCountryCodeTextField.text = "\(defaultCountryCode) "
