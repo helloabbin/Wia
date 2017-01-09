@@ -29,6 +29,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     var placeName = ""
     var placeAddress = ""
     var placeLocation: CLLocation?
+    var placePhoneNumbers = [(countryCode: String, phoneNumber: String)]()
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - ViewController LifeCycle
@@ -107,11 +108,20 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlacePhoneNumberCell", for: indexPath) as! WMakePlacePhoneNumberCell
                 cell.delegate = self
+                if placePhoneNumbers.count > 0 {
+                    cell.cellPhoneNumber = placePhoneNumbers[0].phoneNumber
+                    cell.cellCountryCode = placePhoneNumbers[0].countryCode
+                }
                 return cell
             }
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceAdditionalPhoneNumberCell", for: indexPath) as! WMakePlaceAdditionalPhoneNumberCell
                 cell.delegate = self
+                cell.cellIndexPath = indexPath
+                if placePhoneNumbers.count > indexPath.row {
+                    cell.cellPhoneNumber = placePhoneNumbers[indexPath.row].phoneNumber
+                    cell.cellCountryCode = placePhoneNumbers[indexPath.row].countryCode
+                }
                 return cell
             }
         }
@@ -160,16 +170,53 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     // MARK: - WMakePlacePhoneNumberCellDelegate
     
     func phoneNumberCellAccessoryButtonTapped(cell: WMakePlacePhoneNumberCell) {
-        numberOfPhoneNumberCells += 1
-        tableView.reloadSections(IndexSet(integer: WMakePlaceControllerSection.phoneNumber.rawValue), with: .automatic)
+        if placePhoneNumbers.count ==  numberOfPhoneNumberCells {
+            numberOfPhoneNumberCells += 1
+            tableView.reloadSections(IndexSet(integer: WMakePlaceControllerSection.phoneNumber.rawValue), with: .automatic)
+        }
+    }
+    
+    func phoneNumberCellDidChange(phoneNumber: (countryCode: String, phoneNumber: String)?) {
+        if let unwrapped = phoneNumber {
+            if placePhoneNumbers.count > 0 {
+                placePhoneNumbers[0] = unwrapped
+            }
+            else{
+                placePhoneNumbers.append(unwrapped)
+            }
+        }
+        else {
+            if placePhoneNumbers.count > 0 {
+                placePhoneNumbers.remove(at: 0)
+            }
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - WMakePlaceAdditionalPhoneNumberCellDelegate
     
-    func additionalPhoneNumberCellAccessoryButtonTapped(cell: WMakePlaceAdditionalPhoneNumberCell) {
+    func additionalPhoneNumberCellAccessoryButtonTapped(at indexPath: IndexPath) {
+        if placePhoneNumbers.count > indexPath.row {
+            placePhoneNumbers.remove(at: indexPath.row)
+        }
         numberOfPhoneNumberCells -= 1
         tableView.reloadSections(IndexSet(integer: WMakePlaceControllerSection.phoneNumber.rawValue), with: .automatic)
+    }
+    
+    func additionalPhoneNumberCellDidChange(phoneNumber: (countryCode: String, phoneNumber: String)?, at indexPath: IndexPath) {
+        if let unwrapped = phoneNumber {
+            if placePhoneNumbers.count > indexPath.row {
+                placePhoneNumbers[indexPath.row] = unwrapped
+            }
+            else{
+                placePhoneNumbers.append(unwrapped)
+            }
+        }
+        else {
+            if placePhoneNumbers.count > indexPath.row {
+                placePhoneNumbers.remove(at: indexPath.row)
+            }
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

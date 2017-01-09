@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WRatingCellDelegate {
-    func ratingCellDidChangeRating(cell: WRatingCell, rating: Double)
+    func ratingCellDidChange(rating: Double)
 }
 
 class WRatingCell: UITableViewCell {
@@ -77,7 +77,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "5.0"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 5.0)
+            delegate?.ratingCellDidChange(rating: 5.0)
         }
         else if value > 8 {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -91,7 +91,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "4.5"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 4.5)
+            delegate?.ratingCellDidChange(rating: 4.5)
         }
         else if value > 7 {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -105,7 +105,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "4.0"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 4.0)
+            delegate?.ratingCellDidChange(rating: 4.0)
         }
         else if value > 6 {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -119,7 +119,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "3.5"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 3.5)
+            delegate?.ratingCellDidChange(rating: 3.5)
         }
         else if value > 5 {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -133,7 +133,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "3.0"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 3.0)
+            delegate?.ratingCellDidChange(rating: 3.0)
         }
         else if value > 4 {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -147,7 +147,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "2.5"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 2.5)
+            delegate?.ratingCellDidChange(rating: 2.5)
         }
         else if value > 3 {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -161,7 +161,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "2.0"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 2.0)
+            delegate?.ratingCellDidChange(rating: 2.0)
         }
         else if value > 2 {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -175,7 +175,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "1.5"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 1.5)
+            delegate?.ratingCellDidChange(rating: 1.5)
         }
         else if value > 1 {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -189,7 +189,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = WColor.colorFor(value: 2)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "1.0"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 1.0)
+            delegate?.ratingCellDidChange(rating: 1.0)
         }
         else {
             tenView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -203,7 +203,7 @@ class WRatingCell: UITableViewCell {
             twoView.backgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
             oneView.backgroundColor = WColor.colorFor(value: 1)
             ratingLabel.text = "0.5"
-            delegate?.ratingCellDidChangeRating(cell: self, rating: 0.5)
+            delegate?.ratingCellDidChange(rating: 0.5)
         }
     }
 
