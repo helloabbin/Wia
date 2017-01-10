@@ -174,6 +174,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
             numberOfPhoneNumberCells += 1
             tableView.reloadSections(IndexSet(integer: WMakePlaceControllerSection.phoneNumber.rawValue), with: .automatic)
         }
+        print(placePhoneNumbers)
     }
     
     func phoneNumberCellDidChange(phoneNumber: (countryCode: String, phoneNumber: String)?) {
@@ -190,6 +191,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
                 placePhoneNumbers.remove(at: 0)
             }
         }
+        print(placePhoneNumbers)
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -201,6 +203,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         }
         numberOfPhoneNumberCells -= 1
         tableView.reloadSections(IndexSet(integer: WMakePlaceControllerSection.phoneNumber.rawValue), with: .automatic)
+        print(placePhoneNumbers)
     }
     
     func additionalPhoneNumberCellDidChange(phoneNumber: (countryCode: String, phoneNumber: String)?, at indexPath: IndexPath) {
@@ -217,6 +220,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
                 placePhoneNumbers.remove(at: indexPath.row)
             }
         }
+        print(placePhoneNumbers)
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

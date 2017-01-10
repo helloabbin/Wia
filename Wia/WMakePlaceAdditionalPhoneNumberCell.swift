@@ -30,7 +30,7 @@ class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell {
         cellTextField.withPrefix = false
         if let unWrapped = phoneNumberKit.countryCode(for: PhoneNumberKit.defaultRegionCode()) {
             defaultCountryCode = "+\(unWrapped)"
-            cellCountryCodeTextField.text = "\(defaultCountryCode) "
+            cellCountryCodeTextField.text = "\(defaultCountryCode)"
         }
     }
 
@@ -38,6 +38,11 @@ class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cellTextField.text = ""
     }
     
     @IBAction func textFieldEditingChanged(_ sender: PhoneNumberTextField) {
