@@ -164,6 +164,9 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         if indexPath.section == WMakePlaceControllerSection.location.rawValue {
             performSegue(withIdentifier: "WMapViewControllerSegue", sender: self)
         }
+        else if indexPath.section == WMakePlaceControllerSection.workingDays.rawValue {
+            performSegue(withIdentifier: "WDaysControllerSegue", sender: self)
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

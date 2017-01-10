@@ -33,6 +33,7 @@
 		ED7365BF1E19304A00599FE6 /* WManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365BE1E19304A00599FE6 /* WManager.swift */; };
 		ED7365C11E194D3100599FE6 /* WMakeItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365C01E194D3100599FE6 /* WMakeItemController.swift */; };
 		ED7365C31E194D5900599FE6 /* WReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7365C21E194D5900599FE6 /* WReviewController.swift */; };
+		ED79CE881E24B52C0082E5CA /* WDaysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED79CE871E24B52C0082E5CA /* WDaysController.swift */; };
 		ED905FCE1E1E923F00937E13 /* WReviewImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED905FCD1E1E923F00937E13 /* WReviewImageCollectionCell.swift */; };
 		ED905FD01E1E966C00937E13 /* WRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED905FCF1E1E966C00937E13 /* WRatingCell.swift */; };
 		ED905FD21E1E9E0700937E13 /* WReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED905FD11E1E9E0600937E13 /* WReviewCell.swift */; };
@@ -83,6 +84,7 @@
 		ED7365BE1E19304A00599FE6 /* WManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WManager.swift; sourceTree = "<group>"; };
 		ED7365C01E194D3100599FE6 /* WMakeItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMakeItemController.swift; sourceTree = "<group>"; };
 		ED7365C21E194D5900599FE6 /* WReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WReviewController.swift; sourceTree = "<group>"; };
+		ED79CE871E24B52C0082E5CA /* WDaysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDaysController.swift; sourceTree = "<group>"; };
 		ED905FCD1E1E923F00937E13 /* WReviewImageCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WReviewImageCollectionCell.swift; sourceTree = "<group>"; };
 		ED905FCF1E1E966C00937E13 /* WRatingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRatingCell.swift; sourceTree = "<group>"; };
 		ED905FD11E1E9E0600937E13 /* WReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WReviewCell.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				ED5F969C1E1AB26F005688A1 /* WMakePlaceController.swift */,
 				ED7365C21E194D5900599FE6 /* WReviewController.swift */,
 				ED0B08E11E20CBFE00F4455F /* WMapViewController.swift */,
+				ED79CE871E24B52C0082E5CA /* WDaysController.swift */,
 				ED0D2D3B1E17B01A003A1BCD /* SecondViewController.swift */,
 			);
 			name = ViewControllers;
@@ -426,6 +429,7 @@
 				ED7365BF1E19304A00599FE6 /* WManager.swift in Sources */,
 				EDAC78BD1E1BB6F100720EA3 /* WMakePlaceCoordinatesCell.swift in Sources */,
 				ED0D2D3A1E17B01A003A1BCD /* FirstViewController.swift in Sources */,
+				ED79CE881E24B52C0082E5CA /* WDaysController.swift in Sources */,
 				ED0D2D601E17FCFF003A1BCD /* WImagePickerCell.swift in Sources */,
 				EDAC78B91E1BB54100720EA3 /* WMakePlaceNameCell.swift in Sources */,
 				ED0D2D5E1E17FC82003A1BCD /* WImagePickerController.swift in Sources */,

@@ -37,6 +37,11 @@ class WMakePlacePhoneNumberCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cellTextField.text = ""
+    }
 
     @IBAction func textFieldEditingChanged(_ sender: PhoneNumberTextField) {
         if let unwrapped = sender.text?.cleaned {
