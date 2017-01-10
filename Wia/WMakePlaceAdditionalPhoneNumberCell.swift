@@ -11,12 +11,11 @@ import PhoneNumberKit
 
 protocol WMakePlaceAdditionalPhoneNumberCellDelegate {
     func additionalPhoneNumberCellAccessoryButtonTapped(at indexPath: IndexPath)
-    func additionalPhoneNumberCellDidChange(phoneNumber: (countryCode: String, phoneNumber: String)?, at indexPath: IndexPath)
+    func additionalPhoneNumberCellDidChange(phoneNumber: String?, at indexPath: IndexPath)
 }
 
-class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell {
+class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell, UITextFieldDelegate {
 
-    @IBOutlet weak var cellCountryCodeTextField: UITextField!
     @IBOutlet weak var cellTextField: PhoneNumberTextField!
     
     var cellIndexPath: IndexPath!
@@ -27,10 +26,11 @@ class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         cellTextField.withPrefix = false
-        if let unWrapped = phoneNumberKit.countryCode(for: PhoneNumberKit.defaultRegionCode()) {
-            defaultCountryCode = "+\(unWrapped)"
-            cellCountryCodeTextField.text = "\(defaultCountryCode)"
+        
+        if let code = phoneNumberKit.countryCode(for: PhoneNumberKit.defaultRegionCode()) {
+            defaultCountryCode = "+\(code)"
         }
     }
 
@@ -46,14 +46,11 @@ class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell {
     }
     
     @IBAction func textFieldEditingChanged(_ sender: PhoneNumberTextField) {
-        if let unwrapped = sender.text?.cleaned {
-            if unwrapped.length > 0 {
-                let number = (countryCode: defaultCountryCode, phoneNumber: unwrapped)
-                delegate?.additionalPhoneNumberCellDidChange(phoneNumber: number, at: cellIndexPath)
-            }
-            else {
-                delegate?.additionalPhoneNumberCellDidChange(phoneNumber: nil, at: cellIndexPath)
-            }
+        if sender.text != defaultCountryCode {
+            delegate?.additionalPhoneNumberCellDidChange(phoneNumber: sender.text?.cleaned, at: cellIndexPath)
+        }
+        else {
+            delegate?.additionalPhoneNumberCellDidChange(phoneNumber: nil, at: cellIndexPath)
         }
     }
 
@@ -61,15 +58,30 @@ class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell {
         delegate?.additionalPhoneNumberCellAccessoryButtonTapped(at: cellIndexPath)
     }
     
-    var cellPhoneNumber: String? {
+    var cellText: String? {
         didSet {
-            cellTextField.text = cellPhoneNumber
+            cellTextField.text = cellText
         }
     }
     
-    var cellCountryCode: String? {
-        didSet {
-            cellCountryCodeTextField.text = cellCountryCode
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == "" {
+            textField.text = defaultCountryCode
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == defaultCountryCode {
+            textField.text = ""
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (range.location <= 2 && range.length >= 1) {
+            return false
+        }
+        else{
+            return true
         }
     }
     

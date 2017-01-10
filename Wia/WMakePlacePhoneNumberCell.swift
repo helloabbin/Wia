@@ -11,25 +11,27 @@ import PhoneNumberKit
 
 protocol WMakePlacePhoneNumberCellDelegate {
     func phoneNumberCellAccessoryButtonTapped(cell:WMakePlacePhoneNumberCell)
-    func phoneNumberCellDidChange(phoneNumber: (countryCode: String, phoneNumber: String)?)
+    func phoneNumberCellDidChange(phoneNumber: String?)
 }
 
-class WMakePlacePhoneNumberCell: UITableViewCell {
+class WMakePlacePhoneNumberCell: UITableViewCell, UITextFieldDelegate {
 
-    @IBOutlet weak var cellCountryCodeTextField: UITextField!
     @IBOutlet weak var cellTextField: PhoneNumberTextField!
     
     var delegate: WMakePlacePhoneNumberCellDelegate?
+    
     let phoneNumberKit = PhoneNumberKit()
     var defaultCountryCode = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         cellTextField.withPrefix = false
-        if let unWrapped = phoneNumberKit.countryCode(for: PhoneNumberKit.defaultRegionCode()) {
-            defaultCountryCode = "+\(unWrapped)"
-            cellCountryCodeTextField.text = "\(defaultCountryCode)"
+        
+        if let code = phoneNumberKit.countryCode(for: PhoneNumberKit.defaultRegionCode()) {
+            defaultCountryCode = "+\(code)"
         }
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,14 +46,11 @@ class WMakePlacePhoneNumberCell: UITableViewCell {
     }
 
     @IBAction func textFieldEditingChanged(_ sender: PhoneNumberTextField) {
-        if let unwrapped = sender.text?.cleaned {
-            if unwrapped.length > 0 {
-                let number = (countryCode: defaultCountryCode, phoneNumber: unwrapped)
-                delegate?.phoneNumberCellDidChange(phoneNumber: number)
-            }
-            else {
-                delegate?.phoneNumberCellDidChange(phoneNumber: nil)
-            }
+        if sender.text != defaultCountryCode {
+            delegate?.phoneNumberCellDidChange(phoneNumber: sender.text?.cleaned)
+        }
+        else {
+            delegate?.phoneNumberCellDidChange(phoneNumber: nil)
         }
     }
     
@@ -65,9 +64,24 @@ class WMakePlacePhoneNumberCell: UITableViewCell {
         }
     }
     
-    var cellCountryCode: String? {
-        didSet {
-            cellCountryCodeTextField.text = cellCountryCode
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == "" {
+            textField.text = defaultCountryCode
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == defaultCountryCode {
+            textField.text = ""
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (range.location <= defaultCountryCode.length && range.length >= 1) {
+            return false
+        }
+        else{
+            return true
         }
     }
     

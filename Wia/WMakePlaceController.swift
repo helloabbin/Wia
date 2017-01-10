@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDelegate, WMakePlaceAdditionalPhoneNumberCellDelegate, WMakePlaceWorkingHoursCellDelegate, WMakePlaceAdditionalWorkingHoursCellDelegate, WMakePlaceAddressCellDelegate, WMapViewControllerDelegate {
+class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDelegate, WMakePlaceAdditionalPhoneNumberCellDelegate, WMakePlaceWorkingHoursCellDelegate, WMakePlaceAdditionalWorkingHoursCellDelegate, WMakePlaceAddressCellDelegate, WMapViewControllerDelegate, WDaysControllerDelegate {
     
     enum WMakePlaceControllerSection: Int {
         case name
@@ -29,7 +29,8 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     var placeName = ""
     var placeAddress = ""
     var placeLocation: CLLocation?
-    var placePhoneNumbers = [(countryCode: String, phoneNumber: String)]()
+    var placePhoneNumbers = [String]()
+    var placeWorkingDays = [Int]()
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - ViewController LifeCycle
@@ -54,6 +55,11 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         if segue.identifier == "WMapViewControllerSegue" {
             let controller = segue.destination as! WMapViewController
             controller.delegate = self
+        }
+        else if segue.identifier == "WDaysControllerSegue" {
+            let controller = segue.destination as! WDaysController
+            controller.delegate = self
+            controller.daysArray = placeWorkingDays
         }
     }
     
@@ -109,8 +115,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
                 let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlacePhoneNumberCell", for: indexPath) as! WMakePlacePhoneNumberCell
                 cell.delegate = self
                 if placePhoneNumbers.count > 0 {
-                    cell.cellPhoneNumber = placePhoneNumbers[0].phoneNumber
-                    cell.cellCountryCode = placePhoneNumbers[0].countryCode
+                    cell.cellPhoneNumber = placePhoneNumbers[0]
                 }
                 return cell
             }
@@ -119,8 +124,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
                 cell.delegate = self
                 cell.cellIndexPath = indexPath
                 if placePhoneNumbers.count > indexPath.row {
-                    cell.cellPhoneNumber = placePhoneNumbers[indexPath.row].phoneNumber
-                    cell.cellCountryCode = placePhoneNumbers[indexPath.row].countryCode
+                    cell.cellText = placePhoneNumbers[indexPath.row]
                 }
                 return cell
             }
@@ -161,6 +165,8 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if indexPath.section == WMakePlaceControllerSection.location.rawValue {
             performSegue(withIdentifier: "WMapViewControllerSegue", sender: self)
         }
@@ -180,7 +186,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         print(placePhoneNumbers)
     }
     
-    func phoneNumberCellDidChange(phoneNumber: (countryCode: String, phoneNumber: String)?) {
+    func phoneNumberCellDidChange(phoneNumber: String?) {
         if let unwrapped = phoneNumber {
             if placePhoneNumbers.count > 0 {
                 placePhoneNumbers[0] = unwrapped
@@ -209,7 +215,7 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         print(placePhoneNumbers)
     }
     
-    func additionalPhoneNumberCellDidChange(phoneNumber: (countryCode: String, phoneNumber: String)?, at indexPath: IndexPath) {
+    func additionalPhoneNumberCellDidChange(phoneNumber: String?, at indexPath: IndexPath) {
         if let unwrapped = phoneNumber {
             if placePhoneNumbers.count > indexPath.row {
                 placePhoneNumbers[indexPath.row] = unwrapped
@@ -263,5 +269,29 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         let condensedlog = Double(round(100000*log)/100000)
         
         cell.cellText = "\(condensedLat), \(condensedlog)"
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - WDaysControllerDelegate
+    
+    func daysController(didFinishWith workingDays: [Int]) {
+        placeWorkingDays = workingDays
+        var string = ""
+        placeWorkingDays.sort()
+        
+        for day in placeWorkingDays {
+            let dateFormater = DateFormatter()
+            let daySymbols = dateFormater.standaloneWeekdaySymbols
+            let dayName = daySymbols?[day]
+            if string.length > 0 {
+                string += ", \(dayName!)"
+            }
+            else{
+                string += dayName!
+            }
+        }
+        
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: WMakePlaceControllerSection.workingDays.rawValue)) as! WMakePlaceWorkingDaysCell
+        cell.cellText = string
     }
 }
