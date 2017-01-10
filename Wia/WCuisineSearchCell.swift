@@ -10,25 +10,23 @@ import UIKit
 
 class WCuisineSearchCell: UITableViewCell {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
     @IBOutlet weak var cellTextLabel: UILabel!
     @IBOutlet weak var cellActivityIndicator: UIActivityIndicatorView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variable
     
     var cellText: String? {
         didSet {
             cellTextLabel.text = cellText
         }
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Other Functions
     
     func startAnimating() {
         cellActivityIndicator.startAnimating()

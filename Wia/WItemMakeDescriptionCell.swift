@@ -13,21 +13,19 @@ protocol WItemMakeDescriptionCellDelegate {
 }
 
 class WItemMakeDescriptionCell: UITableViewCell, UITextViewDelegate {
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
 
     @IBOutlet weak var cellTextView: UITextView!
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variable
+    
     var delegate: WItemMakeDescriptionCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITextViewDelegate
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "type here" {

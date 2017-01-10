@@ -31,6 +31,11 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     var placeLocation: CLLocation?
     var placePhoneNumbers = [String]()
     var placeWorkingDays = [Int]()
+    var placeWokingFrom : Date?
+    var placeWorkingTill : Date?
+    
+    let fromDatePicker = UIDatePicker()
+    let tillDatePicker = UIDatePicker()
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - ViewController LifeCycle
@@ -41,6 +46,14 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         navigationItem.leftBarButtonItem = back
         
         tableView.keyboardDismissMode = .interactive
+        
+        fromDatePicker.backgroundColor = UIColor.white
+        fromDatePicker.datePickerMode = .time
+        fromDatePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        
+        tillDatePicker.backgroundColor = UIColor.white
+        tillDatePicker.datePickerMode = .time
+        tillDatePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,6 +73,29 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
             let controller = segue.destination as! WDaysController
             controller.delegate = self
             controller.daysArray = placeWorkingDays
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - DatePickerMethod
+    
+    func datePickerValueChanged(_ sender: UIDatePicker){
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: WMakePlaceControllerSection.workinghours.rawValue)) as! WMakePlaceWorkingHoursCell
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        
+        let date = sender.date
+        
+        if sender === fromDatePicker {
+            let from = formatter.string(from: date)
+            cell.cellFromText = from
+            placeWokingFrom = date
+        }
+        else {
+            let till = formatter.string(from: date)
+            cell.cellTillText = till
+            placeWorkingTill = date
         }
     }
     
@@ -137,6 +173,8 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "WMakePlaceWorkingHoursCell", for: indexPath) as! WMakePlaceWorkingHoursCell
                 cell.delegate = self
+                cell.cellFromInputView = fromDatePicker
+                cell.cellTillInputView = tillDatePicker
                 return cell
             }
             else{
@@ -294,4 +332,5 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: WMakePlaceControllerSection.workingDays.rawValue)) as! WMakePlaceWorkingDaysCell
         cell.cellText = string
     }
+    
 }

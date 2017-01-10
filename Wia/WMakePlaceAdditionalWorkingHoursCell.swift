@@ -14,18 +14,13 @@ protocol WMakePlaceAdditionalWorkingHoursCellDelegate {
 
 class WMakePlaceAdditionalWorkingHoursCell: UITableViewCell {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variable
+    
     var delegate: WMakePlaceAdditionalWorkingHoursCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBAction
 
     @IBAction func addButtonClicked(_ sender: Any) {
         delegate?.additionalWorkingHoursCellAccessoryButtonTapped(cell: self)

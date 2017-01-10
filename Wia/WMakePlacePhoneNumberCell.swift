@@ -16,35 +16,28 @@ protocol WMakePlacePhoneNumberCellDelegate {
 
 class WMakePlacePhoneNumberCell: UITableViewCell, UITextFieldDelegate {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
     @IBOutlet weak var cellTextField: PhoneNumberTextField!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variable
     
     var delegate: WMakePlacePhoneNumberCellDelegate?
     
     let phoneNumberKit = PhoneNumberKit()
     var defaultCountryCode = ""
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        cellTextField.withPrefix = false
-        
-        if let code = phoneNumberKit.countryCode(for: PhoneNumberKit.defaultRegionCode()) {
-            defaultCountryCode = "+\(code)"
+    var cellPhoneNumber: String? {
+        didSet {
+            cellTextField.text = cellPhoneNumber
         }
-
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        cellTextField.text = ""
-    }
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBAction
+    
     @IBAction func textFieldEditingChanged(_ sender: PhoneNumberTextField) {
         if sender.text != defaultCountryCode {
             delegate?.phoneNumberCellDidChange(phoneNumber: sender.text?.cleaned)
@@ -58,11 +51,27 @@ class WMakePlacePhoneNumberCell: UITableViewCell, UITextFieldDelegate {
         delegate?.phoneNumberCellAccessoryButtonTapped(cell: self)
     }
     
-    var cellPhoneNumber: String? {
-        didSet {
-            cellTextField.text = cellPhoneNumber
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Cell Life Cycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        cellTextField.withPrefix = false
+        
+        if let code = phoneNumberKit.countryCode(for: PhoneNumberKit.defaultRegionCode()) {
+            defaultCountryCode = "+\(code)"
         }
+
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cellTextField.text = ""
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITextFieldDelegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "" {

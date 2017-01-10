@@ -14,23 +14,18 @@ protocol WMakePlaceAddressCellDelegate {
 
 class WMakePlaceAddressCell: UITableViewCell {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variable
+    
     var delegate:WMakePlaceAddressCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
     
     @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
         if let unwrapped = sender.text {
             delegate?.makePlaceAddressCellDidChangeEditing(text: unwrapped.cleaned)
         }
     }
-
+    
 }

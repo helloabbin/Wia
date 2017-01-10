@@ -14,20 +14,46 @@ protocol WMakePlaceWorkingHoursCellDelegate {
 
 class WMakePlaceWorkingHoursCell: UITableViewCell {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
+    @IBOutlet weak var fromTextField: UITextField!
+    @IBOutlet weak var tillTextField: UITextField!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variable
+    
     var delegate: WMakePlaceWorkingHoursCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var cellFromInputView: UIView? {
+        didSet {
+            fromTextField.inputView = cellFromInputView
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    var cellTillInputView: UIView? {
+        didSet {
+            tillTextField.inputView = cellTillInputView
+        }
     }
+    
+    var cellFromText: String? {
+        didSet {
+            fromTextField.text = cellFromText
+        }
+    }
+    
+    var cellTillText: String? {
+        didSet {
+            tillTextField.text = cellTillText
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBAction
 
     @IBAction func addButtonClicked(_ sender: Any) {
         delegate?.workingHoursCellAccessoryButtonTapped(cell: self)
     }
+    
 }

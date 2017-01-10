@@ -16,13 +16,44 @@ protocol WMakePlaceAdditionalPhoneNumberCellDelegate {
 
 class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell, UITextFieldDelegate {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
     @IBOutlet weak var cellTextField: PhoneNumberTextField!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variable
     
     var cellIndexPath: IndexPath!
     var delegate: WMakePlaceAdditionalPhoneNumberCellDelegate?
     
     let phoneNumberKit = PhoneNumberKit()
     var defaultCountryCode = ""
+    
+    var cellText: String? {
+        didSet {
+            cellTextField.text = cellText
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBAction
+    
+    @IBAction func textFieldEditingChanged(_ sender: PhoneNumberTextField) {
+        if sender.text != defaultCountryCode {
+            delegate?.additionalPhoneNumberCellDidChange(phoneNumber: sender.text?.cleaned, at: cellIndexPath)
+        }
+        else {
+            delegate?.additionalPhoneNumberCellDidChange(phoneNumber: nil, at: cellIndexPath)
+        }
+    }
+    
+    @IBAction func addbuttonClicked(_ sender: UIButton) {
+        delegate?.additionalPhoneNumberCellAccessoryButtonTapped(at: cellIndexPath)
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Cell Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,36 +64,14 @@ class WMakePlaceAdditionalPhoneNumberCell: UITableViewCell, UITextFieldDelegate 
             defaultCountryCode = "+\(code)"
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         cellTextField.text = ""
     }
     
-    @IBAction func textFieldEditingChanged(_ sender: PhoneNumberTextField) {
-        if sender.text != defaultCountryCode {
-            delegate?.additionalPhoneNumberCellDidChange(phoneNumber: sender.text?.cleaned, at: cellIndexPath)
-        }
-        else {
-            delegate?.additionalPhoneNumberCellDidChange(phoneNumber: nil, at: cellIndexPath)
-        }
-    }
-
-    @IBAction func addbuttonClicked(_ sender: UIButton) {
-        delegate?.additionalPhoneNumberCellAccessoryButtonTapped(at: cellIndexPath)
-    }
-    
-    var cellText: String? {
-        didSet {
-            cellTextField.text = cellText
-        }
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITextFieldDelegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "" {

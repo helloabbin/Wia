@@ -14,6 +14,9 @@ protocol WRatingCellDelegate {
 
 class WRatingCell: UITableViewCell {
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
     @IBOutlet weak var oneView: UIView!
     @IBOutlet weak var twoView: UIView!
     @IBOutlet weak var threeView: UIView!
@@ -27,22 +30,10 @@ class WRatingCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var panView: UIView!
     
-    var delegate: WRatingCellDelegate?
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variable
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        panView.addGestureRecognizer(gestureRecognizer)
-        
-        let tapgestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        panView.addGestureRecognizer(tapgestureRecognizer)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    var delegate: WRatingCellDelegate?
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - IBAction
@@ -59,6 +50,18 @@ class WRatingCell: UITableViewCell {
             let translation = gestureRecognizer.location(in: panView)
             updateView(value: (translation.x / panView.frame.size.width) * 10)
         }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Cell Life Cycyle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        panView.addGestureRecognizer(gestureRecognizer)
+        
+        let tapgestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        panView.addGestureRecognizer(tapgestureRecognizer)
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

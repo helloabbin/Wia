@@ -11,6 +11,9 @@ import CloudKit
 
 class WManager: NSObject {
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Search Functions
+    
     class func searchItems(searchText:String, completion:(_ results: [CKRecord], _ searchedText: String) -> Void) {
         if searchText.length > 0 {
             completion([], searchText.cleaned)
@@ -27,6 +30,9 @@ class WManager: NSObject {
     class func searchCuisines(searchText:String, completion:(_ results: [CKRecord], _ searchedText: String) -> Void) {
         completion([], searchText.cleaned)
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Save Functions
     
     class func newCuisine(name: String, completionHandler: @escaping (CKRecord?, Error?) -> Swift.Void) {
         let recordId = CKRecordID(recordName: name.capped)

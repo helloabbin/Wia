@@ -14,20 +14,30 @@ protocol WMakeItemPriceCellDelegate {
 
 class WMakeItemPriceCell: UITableViewCell, UITextFieldDelegate {
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
     @IBOutlet weak var cellTextField: UITextField!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Variables
     
     var delegate: WMakeItemPriceCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBAction
+    
+    @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
+        if let price = sender.text?.priceValue {
+            delegate?.makeItemPriceCellDidChange(price: price)
+        }
+        else{
+            delegate?.makeItemPriceCellDidChange(price: 0.0)
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - UITextFieldDelegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "" {
@@ -41,13 +51,4 @@ class WMakeItemPriceCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
-        if let price = sender.text?.priceValue {
-            delegate?.makeItemPriceCellDidChange(price: price)
-        }
-        else{
-            delegate?.makeItemPriceCellDidChange(price: 0.0)
-        }
-    }
-
 }
