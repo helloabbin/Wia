@@ -92,6 +92,10 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
             controller.imageCount = 3 - selectedAssets.count
             controller.delegate = self
         }
+        else if segue.identifier == "WItemSearchControllerSegue" {
+            let controller = segue.destination as! WItemSearchController
+            controller.selectedAssets = selectedAssets
+        }
      }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -104,6 +108,15 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func goToSettings(_ sender: Any) {
         if let appSettings = NSURL(string: UIApplicationOpenSettingsURLString) {
             UIApplication.shared.open(appSettings as URL, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func nextButtonClicked(_ sender: Any) {
+        if selectedAssets.count > 0 {
+            performSegue(withIdentifier: "WItemSearchControllerSegue", sender: self)
+        }
+        else{
+            simpleAlert(title: "No photos selected", message: "Please select atleast one photo to upload")
         }
     }
     
@@ -166,12 +179,6 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
             cameraItem.isEnabled = true
         }
         
-        if selectedAssets.count > 0 {
-            nextItem.isEnabled = true
-        }
-        else{
-            nextItem.isEnabled = false
-        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -195,15 +202,15 @@ class WImagePickerController: UIViewController, UICollectionViewDelegate, UIColl
     // MARK: - Other
     
     func getAllPhotos() {
-        self.imageManager = PHCachingImageManager()
+        imageManager = PHCachingImageManager()
         
         let allPhotosOptions = PHFetchOptions()
         allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         let bobPredicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
         allPhotosOptions.predicate = bobPredicate
         
-        self.fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
-        self.imageCollectionView.reloadData()
+        fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+        imageCollectionView.reloadData()
         
         PHPhotoLibrary.shared().register(self)
     }

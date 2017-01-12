@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import Photos
 
-class WReviewImageCollectionCell: UITableViewCell, UICollectionViewDataSource {
+class WReviewImageCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    var selectedAssets: [PHAsset]!
+    fileprivate var imageManager = PHCachingImageManager()
+    fileprivate var thumbnailSize: CGSize = CGSize.zero
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -22,12 +22,36 @@ class WReviewImageCollectionCell: UITableViewCell, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return selectedAssets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WReviewImageCell", for: indexPath)
+        let asset = selectedAssets[indexPath.item]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WReviewImageCell", for: indexPath) as! WReviewImageCell
+        cell.representedAssetIdentifier = asset.localIdentifier
+        
+        let height = Int(collectionView.frame.size.height)
+        let scale = UIScreen.main.scale
+        let size = CGSize.init(width: height * asset.pixelWidth/asset.pixelHeight, height: height)
+        thumbnailSize = CGSize(width: size.width * scale, height: size.height * scale)
+        
+        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+            if cell.representedAssetIdentifier == asset.localIdentifier {
+                cell.thumbnailImage = image
+            }
+        })
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let asset = selectedAssets[indexPath.row]
+        
+        let height = Int(collectionView.frame.size.height)
+        let size = CGSize.init(width: height * asset.pixelWidth/asset.pixelHeight, height: height)
+        
+        return size
     }
 
 }

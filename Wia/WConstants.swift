@@ -14,7 +14,8 @@ struct WConstants {
     // MARK: - CloudKit Record Types
     
     struct recordType {
-        static let cuisine = "Cuisine"
+        static let cuisine  = "Cuisine"
+        static let item     = "Item"
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

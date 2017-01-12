@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import Photos
 
 class WMakeItemController: UITableViewController, WCuisineSearchControllerDelegate, WMakeItemNameCellDelegate, WMakeItemPriceCellDelegate, WItemMakeDescriptionCellDelegate {
     
@@ -25,6 +26,8 @@ class WMakeItemController: UITableViewController, WCuisineSearchControllerDelega
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Variables
+    
+    var selectedAssets: [PHAsset]!
     
     var itemName = ""
     var itemPrice = 0.0
@@ -57,6 +60,16 @@ class WMakeItemController: UITableViewController, WCuisineSearchControllerDelega
             let nav = segue.destination as! UINavigationController
             let controller = nav.viewControllers.first as! WCuisineSearchController
             controller.delegate = self
+        }
+        else if segue.identifier == "WPlaceSearchControllerSegue" {
+            let controller = segue.destination as! WPlaceSearchController
+            
+            controller.selectedAssets = selectedAssets
+            
+            controller.itemName = itemName
+            controller.itemPrice = itemPrice
+            controller.itemCuisine = itemCuisine
+            controller.itemDescription = itemDescription
         }
     }
     

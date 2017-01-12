@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CloudKit
+import Photos
 
 class WReviewController: UITableViewController {
 
@@ -15,6 +17,9 @@ class WReviewController: UITableViewController {
         case rating
         case review
     }
+    
+    var itemRecord: CKRecord!
+    var selectedAssets: [PHAsset]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +43,13 @@ class WReviewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == WReviewControllerRow.images.rawValue {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WReviewImageCollectionCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WReviewImageCollectionCell", for: indexPath) as! WReviewImageCollectionCell
+            cell.selectedAssets = selectedAssets
             return cell
         }
         else if indexPath.row == WReviewControllerRow.rating.rawValue {
@@ -58,10 +64,10 @@ class WReviewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == WReviewControllerRow.images.rawValue {
-            return 150
+            return 120
         }
         else if indexPath.row == WReviewControllerRow.rating.rawValue {
-            return 60
+            return 80
         }
         else {
             return 120

@@ -51,4 +51,12 @@ class WMakeItemPriceCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (range.location == 0 && range.length == 1) || (range.location > 6 && range.length == 0) {
+            return false
+        }
+        else{
+            return true
+        }
+    }
 }

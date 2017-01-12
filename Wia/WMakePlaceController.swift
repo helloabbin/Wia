@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import CloudKit
+import Photos
 
 class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDelegate, WMakePlaceAdditionalPhoneNumberCellDelegate, WMakePlaceWorkingHoursCellDelegate, WMakePlaceAdditionalWorkingHoursCellDelegate, WMakePlaceAddressCellDelegate, WMapViewControllerDelegate, WDaysControllerDelegate {
     
@@ -21,18 +23,30 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - @IBOutlet
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Variables
     
     var numberOfPhoneNumberCells = 1
     var numberOfWorkingHourCells = 1
+    
+    var selectedAssets: [PHAsset]!
+    
+    var itemName = ""
+    var itemPrice = 0.0
+    var itemCuisine: CKRecord?
+    var itemDescription = ""
     
     var placeName = ""
     var placeAddress = ""
     var placeLocation: CLLocation?
     var placePhoneNumbers = [String]()
     var placeWorkingDays = [Int]()
-    var placeWokingFrom : Date?
-    var placeWorkingTill : Date?
+    var placeWokingFrom = [Date]()
+    var placeWorkingTill = [Date]()
     
     let fromDatePicker = UIDatePicker()
     let tillDatePicker = UIDatePicker()
@@ -54,6 +68,8 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         tillDatePicker.backgroundColor = UIColor.white
         tillDatePicker.datePickerMode = .time
         tillDatePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        
+        nextButton.backgroundColor = WColor.mainColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,6 +90,22 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
             controller.delegate = self
             controller.daysArray = placeWorkingDays
         }
+        else if segue.identifier == "WReviewControllerSegue" {
+//            let itemRecord = WManager.initItem(itemName: itemName,
+//                                               itemPrice: itemPrice,
+//                                               itemCuisine: itemCuisine!,
+//                                               itemDescription: itemDescription,
+//                                               placeName: placeName,
+//                                               placeAddress: placeAddress,
+//                                               placeLocation: placeLocation!,
+//                                               placePhoneNumber: placePhoneNumbers,
+//                                               placeWorkingDays: placeWorkingDays,
+//                                               placeWorkingFrom: placeWokingFrom,
+//                                               placeWorkingTill: placeWorkingTill)
+            let controller = segue.destination as! WReviewController
+//            controller.itemRecord = itemRecord
+            controller.selectedAssets = selectedAssets
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,12 +122,14 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
         if sender === fromDatePicker {
             let from = formatter.string(from: date)
             cell.cellFromText = from
-            placeWokingFrom = date
+            placeWokingFrom.removeAll()
+            placeWokingFrom.append(date)
         }
         else {
             let till = formatter.string(from: date)
             cell.cellTillText = till
-            placeWorkingTill = date
+            placeWorkingTill.removeAll()
+            placeWorkingTill.append(date)
         }
     }
     
@@ -109,7 +143,18 @@ class WMakePlaceController: UITableViewController,WMakePlacePhoneNumberCellDeleg
     }
     
     @IBAction func nextButtonClicked(_ sender: Any) {
-        performSegue(withIdentifier: "WReviewControllerSegue", sender: self)
+//        if placeName.length == 0 {
+//            simpleAlert(title: "Name Missing", message: "Please provide the name of the place")
+//        }
+//        else if placeAddress.length == 0 {
+//            simpleAlert(title: "Address Missing", message: "Please provide the address of the place")
+//        }
+//        else if placeLocation == nil {
+//            simpleAlert(title: "Location Missing", message: "Please provide the exact location of this Place")
+//        }
+//        else {
+            performSegue(withIdentifier: "WReviewControllerSegue", sender: self)
+//        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

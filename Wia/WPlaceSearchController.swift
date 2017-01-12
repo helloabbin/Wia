@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CloudKit
+import Photos
 
 class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
@@ -17,6 +19,13 @@ class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableView
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Variables
+    
+    var selectedAssets: [PHAsset]!
+    
+    var itemName = ""
+    var itemPrice = 0.0
+    var itemCuisine: CKRecord?
+    var itemDescription = ""
     
     var searchController: UISearchController!
     var resultsArray = [AnyObject]()
@@ -68,6 +77,13 @@ class WPlaceSearchController: UIViewController, UITableViewDelegate, UITableView
             let controller = segue.destination as! WMakePlaceController
             if let unWrapped = searchController.searchBar.text?.cleaned {
                 controller.placeName = unWrapped
+                
+                controller.selectedAssets = selectedAssets
+                
+                controller.itemName = itemName
+                controller.itemPrice = itemPrice
+                controller.itemCuisine = itemCuisine
+                controller.itemDescription = itemDescription
             }
         }
     }

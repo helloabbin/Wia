@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
@@ -17,6 +18,8 @@ class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewD
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Variables
+    
+    var selectedAssets: [PHAsset]!
     
     var searchController: UISearchController!
     var resultsArray = [AnyObject]()
@@ -40,6 +43,8 @@ class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewD
         navigationItem.titleView = searchController.searchBar
         
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        searchTableView.keyboardDismissMode = .interactive
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +75,7 @@ class WItemSearchController: UIViewController, UITableViewDelegate, UITableViewD
             let controller = segue.destination as! WMakeItemController
             if let unWrapped = searchController.searchBar.text?.cleaned {
                 controller.itemName = unWrapped
+                controller.selectedAssets = selectedAssets
             }
         }
     }

@@ -55,4 +55,23 @@ class WManager: NSObject {
             }
 //        }
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: - Init Functions
+    
+    class func initItem(itemName: String,
+                        itemPrice: Double,
+                        itemCuisine: CKRecord,
+                        itemDescription: String,
+                        placeName: String,
+                        placeAddress: String,
+                        placeLocation: CLLocation,
+                        placePhoneNumber: [String],
+                        placeWorkingDays: [Int],
+                        placeWorkingFrom: [Date],
+                        placeWorkingTill: [Date]) -> CKRecord {
+        
+        let itemRecord = CKRecord.init(recordType: WConstants.recordType.item)
+        return itemRecord
+    }
 }
